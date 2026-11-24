@@ -1,0 +1,230 @@
+#skillsPanel #skillModuleTabs[hidden] { display: none; }
+#skillsPanel #skillGuide {
+  display: grid;
+  grid-template-columns: minmax(104px, .36fr) minmax(0, 1fr);
+  gap: 12px;
+  max-width: 1020px;
+  margin: auto;
+  overflow: visible;
+}
+.roster-list {
+  display: grid;
+  align-content: start;
+  gap: 4px;
+}
+body.fantasy-rpg .roster-list button {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  min-height: 40px;
+  padding: 1px 6px;
+  text-align: left;
+  font-size: 13px;
+}
+body.fantasy-rpg .roster-list button[aria-pressed="true"] { background: #254e52; border-color: #a1e8ce; }
+.roster-sprite {
+  display: block;
+  width: 42px;
+  height: 42px;
+  flex: none;
+  background: no-repeat center/contain;
+  image-rendering: pixelated;
+}
+.roster-detail { min-width: 0; padding: 10px; background: #0e1c2a; border: 1px solid #345365; }
+.roster-overview { display: grid; grid-template-columns: minmax(97px,.42fr) minmax(0,1fr); gap: 10px; }
+.roster-character {
+  display: grid;
+  justify-items: center;
+  align-content: center;
+  gap: 4px;
+  padding: 6px;
+  background: radial-gradient(ellipse at 50% 63%,#294652,#081520 70%);
+}
+.roster-character { position: relative; min-height: clamp(130px, 42dvh, 320px); }
+.roster-character img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; }
+.roster-character button { min-height: 37px; padding: 5px; font-size: 12px; }
+.roster-detail h3 { margin: 0; font-size: clamp(18px,3vw,34px); }
+.roster-detail p { margin: 5px 0; font-size: 13px; }
+.roster-role { color: #a4e8c9; }
+.roster-stats { display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); gap: 5px; margin: 6px 0 0; }
+.roster-stats div { padding: 4px; background: #142b38; }
+.roster-stats dt { color: #b3cbd5; font-size: 11px; }
+.roster-stats dd { margin: 2px 0 0; font-size: 14px; font-weight: 750; }
+.roster-detail h4 { margin: 10px 0 5px; color: #a4e8c9; }
+.roster-skills { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); padding: 0; margin: 0; gap: 5px; list-style: none; }
+.roster-skills li { display: flex; gap: 7px; padding: 6px; background: #132633; }
+.roster-skills li > span { display: grid; gap: 2px; font-size: 12px; }
+.roster-skills small { color: #a4e8c9; }
+.roster-skills .rpg-icon { width: 22px; height: 22px; flex: none; }
+body.fantasy-rpg #heroAppearanceDialog {
+  position: fixed;
+  inset: 0;
+  box-sizing: border-box;
+  --appearance-side: clamp(160px, 23vw, 245px);
+  width: min(1060px, calc(100vw - 22px), calc((100dvh - 158px) * 16 / 9 + var(--appearance-side) + 2px));
+  height: max-content;
+  max-height: calc(100dvh - 16px);
+  overflow: auto;
+  overscroll-behavior: contain;
+  margin: auto;
+  padding: 0;
+  background: #0a1723;
+  color: #eef8f7;
+  border: 1px solid #506c82;
+  border-radius: 12px;
+  box-shadow: 0 16px 56px #000b;
+}
+#heroAppearanceDialog:not([open]) { display: none; }
+#heroAppearanceDialog::backdrop { background: #030910cc; }
+.appearance-shell { display: grid; width: 100%; }
+.appearance-shell header,.appearance-shell footer {
+  display: flex; align-items: center; justify-content: space-between; gap: 8px; padding: 7px 12px;
+}
+.appearance-shell header { border-bottom: 1px solid #345067; }
+.appearance-shell footer { border-top: 1px solid #243e53; }
+body.fantasy-rpg #heroAppearanceDialog h2 { margin: 0; font-size: clamp(16px,3vw,24px); text-align: left; }
+.appearance-shell button { min-height: 34px; padding: 4px 8px; font-size: 12px; }
+.appearance-carousel { display: grid; grid-template-columns: minmax(0, 1fr) var(--appearance-side); }
+#appearancePreview {
+  position: relative; display: grid; place-items: center; min-width: 0;
+  aspect-ratio: 16 / 9; background: #060f19;
+  touch-action: pan-y; user-select: none;
+}
+#appearancePreview img {
+  display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: contain;
+}
+#appearancePreview button {
+  position: absolute; top: 50%; transform: translateY(-50%);
+  width: 40px; min-height: 40px; padding: 0; font-size: 28px; line-height: 1;
+  background: #091728e8; border: 1px solid #84acc9; color: #f0f8ff;
+}
+#appearancePreview [data-appearance-step="-1"] { left: 8px; }
+#appearancePreview [data-appearance-step="1"] { right: 8px; }
+.appearance-detail {
+  display: grid; align-content: center; justify-items: start; gap: 6px; padding: 12px;
+  border-left: 1px solid #345067; background: linear-gradient(145deg,#14273a,#081320 70%);
+}
+.appearance-detail h3 { margin: 0; font-size: clamp(17px,2.5vw,26px); }
+#appearanceSprite:not([hidden]) {
+  display: grid; place-items: center; width: 100%;
+}
+#appearanceSprite .roster-sprite {
+  width: clamp(52px, 19dvh, 128px);
+  height: clamp(52px, 19dvh, 128px);
+}
+.appearance-detail strong { font-size: 14px; }
+.appearance-detail strong:empty,.appearance-detail p:empty { display: none; }
+#appearanceRarity {
+  color: var(--rarity); border: 1px solid currentColor; border-radius: 5px;
+  padding: 2px 8px; font-size: 12px; font-weight: 700;
+}
+.appearance-detail p { margin: 0; color: #c6d8e6; font-size: 12px; line-height: 1.35; }
+#appearancePositions { display: grid; grid-template-columns: repeat(6,minmax(0,1fr)); gap: 4px; padding: 6px 8px; }
+body.fantasy-rpg #appearancePositions button {
+  display: grid; place-content: center; min-width: 0; padding: 4px 2px; font-size: clamp(10px,1.5vw,14px);
+  color: var(--tile-rarity); background: color-mix(in srgb,var(--tile-rarity) 9%,#091522);
+  border: 1px solid color-mix(in srgb,var(--tile-rarity) 55%,#192939);
+}
+body.fantasy-rpg #appearancePositions button[aria-pressed="true"] {
+  border-color: var(--tile-rarity); box-shadow: inset 0 0 11px color-mix(in srgb,var(--tile-rarity) 26%,transparent);
+  background: color-mix(in srgb,var(--tile-rarity) 19%,#091522);
+}
+#appearancePositions small { font-size: .75em; color: #bed0df; }
+#appearanceStatus { font-size: 12px; color: #a5efbd; font-weight: 700; }
+body.fantasy-rpg #applyHeroAppearance:not(:disabled) { background: var(--rarity); color: #081622; }
+@media (max-width: 550px) and (orientation: portrait) {
+  body.fantasy-rpg #heroAppearanceDialog { width: calc(100vw - 22px); }
+  .appearance-carousel { grid-template-columns: 1fr; }
+  #appearancePreview { height: auto; aspect-ratio: 16 / 9; }
+  .appearance-detail { border-left: 0; border-top: 1px solid #345067; padding: 8px 12px; }
+}
+@media (orientation: landscape) and (max-height: 340px) {
+  .appearance-detail { gap: 4px; padding: 6px 8px; }
+  #appearanceSprite .roster-sprite { width: 44px; height: 44px; }
+}
+@media (max-width: 680px) {
+  .roster-stats { grid-template-columns: repeat(3,minmax(0,1fr)); }
+}
+@media (max-width: 490px) {
+  #skillsPanel #skillGuide,.roster-skills { grid-template-columns: 1fr; }
+  .roster-list { grid-template-columns: repeat(3,minmax(0,1fr)); }
+  .roster-list .roster-sprite { width: 26px; height: 30px; }
+  #appearancePositions { grid-template-columns: repeat(3,minmax(0,1fr)); }
+}
+
+body.fantasy-rpg #heroSkillsDialog {
+  position: fixed;
+  inset: 0;
+  width: min(735px, calc(100vw - 24px));
+  height: min(540px, calc(100dvh - max(10px, env(safe-area-inset-top)) - max(10px, env(safe-area-inset-bottom))));
+  max-height: none;
+  box-sizing: border-box;
+  align-items: stretch;
+  justify-items: stretch;
+  margin: auto;
+  padding: 0;
+  overflow: hidden;
+  color: #eef8f7;
+  background: #0b1825;
+  border: 1px solid #587686;
+}
+#heroSkillsDialog[open] { display: grid; grid-template-rows: auto minmax(0, 1fr); }
+#heroSkillsDialog:not([open]) { display: none; }
+#heroSkillsDialog::backdrop { background: #030910dc; }
+#heroSkillsDialog header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 8px 12px;
+  border-bottom: 1px solid #345365;
+}
+body.fantasy-rpg #heroSkillsDialog h2 { margin: 0; font-size: clamp(16px, 2.9vw, 24px); }
+#closeHeroSkills { flex: none; min-height: 34px; padding: 4px 9px; font-size: 12px; }
+#heroSkillsDialog .roster-skills {
+  min-height: 0;
+  align-content: start;
+  overflow: auto;
+  overscroll-behavior: contain;
+  touch-action: pan-y;
+  padding: 8px 12px 12px;
+  scrollbar-gutter: stable;
+}
+#heroSkillsDialog .roster-skills li > span { min-width: 0; overflow-wrap: anywhere; }
+#heroSkillsDialog .roster-skills li b { line-height: 1.25; }
+.hero-level-panel {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 9px;
+  margin-top: 9px;
+  padding: 7px;
+  border: 1px solid #345365;
+  background: #122736;
+}
+.hero-level-panel button { min-height: 36px; padding: 4px 9px; }
+.hero-level-requirements { display: flex; flex: 1; flex-wrap: wrap; gap: 5px 12px; font-size: 12px; }
+.hero-level-requirements b { white-space: nowrap; color: #e0f3dc; }
+.hero-level-requirements .missing b { color: #ffc1a6; }
+#heroLevelMessage:empty { display: none; }
+#heroLevelMessage { width: 100%; color: #a4e8c9; }
+body.fantasy-rpg #runStatus #waveRemaining { font-weight: 700; font-size: 8px; color: #c9e6ef; }
+body.fantasy-rpg #hubNavigation .hub-shortcuts { grid-template-columns: repeat(4,minmax(0,1fr)); }
+.roster-heading { display: flex; align-items: flex-start; justify-content: space-between; gap: 5px 10px; flex-wrap: wrap; }
+.roster-actions { display: flex; flex-wrap: wrap; gap: 5px; margin-left: auto; }
+.roster-actions button { min-height: 36px; padding: 5px 10px; font-size: 12px; }
+.basic-attack-icon { object-fit: contain; image-rendering: pixelated; vertical-align: middle; }
+
+.roster-list button[aria-pressed="true"] {background:linear-gradient(110deg,#20505b,#10232d 75%);box-shadow:inset 3px 0 #8ae3d3}
+.roster-detail {background:radial-gradient(ellipse at top left,#1c3544,transparent 66%),#0f1d28}
+.roster-actions [data-open-appearance] {color:var(--rarity);border-color:var(--rarity);box-shadow:inset 0 -2px var(--rarity)}
+#heroChronicle {box-sizing:border-box;width:min(34rem,92vw);max-height:88dvh;overflow:auto;padding:clamp(16px,4vh,32px);border:1px solid #928163;color:#f4e8d0;background:linear-gradient(135deg,#263745,#101b28 70%);box-shadow:0 14px 48px #0009}
+#heroChronicle::backdrop {background:#020913cd}
+#heroChronicle header {display:flex;align-items:center;justify-content:space-between;gap:1rem;color:#d9bf88}
+#heroChronicle h2 {font: bold clamp(22px,4vw,34px) Georgia,serif;margin:.5em 0}
+#heroChronicle p {font-size:1rem;line-height:1.55;margin:.5em 0}
+@media(prefers-reduced-motion:no-preference){
+ #heroChronicle[open],.roster-character img {animation:chronicle-reveal .18s ease-out}
+ @keyframes chronicle-reveal {from{opacity:.45;transform:translateY(4px)}}
+ :is(.roster-actions,.panel-header,.pause-actions) button:active,#quit:active {transform:translateY(2px);filter:brightness(1.18)}
+}

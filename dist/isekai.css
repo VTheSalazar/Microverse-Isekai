@@ -1,0 +1,451 @@
+#isekaiStartup {
+  position: fixed; inset: 0; z-index: 1200; display: grid; place-items: center;
+  color: #f7eeff; background: radial-gradient(ellipse at 50% 72%, #5d248c66, transparent 65%),
+    linear-gradient(#09091b 24%, #0b0928aa), url('assets/isekai/city.webp') center bottom / 100% auto no-repeat #09091b;
+}
+#isekaiStartup [hidden], #isekaiStartup[hidden] { display: none !important; }
+#isekaiStartup #enterIsekai {
+  display: grid; place-content: center; justify-items: center; gap: clamp(12px, 4vh, 28px);
+  width: 100%; height: 100%; margin: 0; border: 0; background: transparent; box-shadow: none;
+  color: #f7eeff; opacity: 1; padding: 20px; text-align: center;
+}
+#isekaiStartupTitle { font: 700 clamp(26px, 6vw, 74px)/1.1 Georgia, serif; text-shadow: 0 0 24px #ae50ff88; }
+#isekaiStartupTitle span, #hubBrand h1 span { color: #ed90ff; -webkit-text-fill-color: #ed90ff; }
+#isekaiProgress { width: min(65vw, 400px); height: 10px; accent-color: #d666ff; }
+#isekaiLoadText { font-size: clamp(12px, 2.2vw, 17px); letter-spacing: .04em; }
+#isekaiChoice { display: grid; gap: 12px; padding: 12px; text-align: center; }
+#isekaiChoice h2 { margin: 0; font: 700 clamp(23px, 5vh, 38px) Georgia, serif; }
+.isekai-choices { display: flex; gap: clamp(10px, 4vw, 30px); }
+#isekaiChoice button {
+  display: grid; gap: 8px; justify-items: center; background: #221638;
+  color: #fff2ff; border: 1px solid #d38cff; padding: 4px 4px 10px; margin: 0;
+  box-shadow: 0 0 16px #a449e55e; border-radius: 12px; overflow: hidden;
+}
+.isekai-choices img { width: min(38vw, 34vh, 244px); height: min(58vh, 360px); object-fit: cover; object-position: 45% top; border-radius: 8px; }
+#isekaiChoice button:is(:hover,:focus-visible) { box-shadow: 0 0 30px #d173ff; border-color: #f9d0ff; }
+
+body.fantasy-rpg #menu:has(#menuHome:not(.hidden)) {
+  background: radial-gradient(ellipse at 52% 83%, #57207f77, transparent 65%),
+    linear-gradient(#080819 10%, #0b1023 65%, #100a2b66),
+    url('assets/isekai/city.webp') center bottom / 100% auto no-repeat #0b1023;
+}
+.fantasy-rpg #menu #menuHome:not(.hidden) {
+  --portrait-column: minmax(0, 30%);
+  grid-template-columns: var(--portrait-column) minmax(0,1fr) !important;
+  grid-template-rows: auto minmax(0,1fr) auto auto;
+  gap: clamp(7px, 2vh, 20px) clamp(8px, 2vw, 24px);
+  min-height: 100%; height: auto; max-width: 1550px;
+}
+.fantasy-rpg #menuHome .hub-header { grid-column: 1/-1; border-bottom-color: #c279eb77; gap: clamp(5px, 1vw, 16px); min-height: 0; padding-bottom: 8px; }
+.fantasy-rpg #menuHome #hubBrand h1 { color: #f3ecff; -webkit-text-fill-color: #f3ecff; letter-spacing: .025em; font-size: clamp(18px, 3vw, 47px); }
+.fantasy-rpg #hubResources .wallet-chip { min-width: 0; padding: 5px 8px; background: #120d29; border-color: #874ca7; }
+.fantasy-rpg #menuHome #menuOptions summary { padding: 8px; border: 1px solid #945caf; background: #241238; border-radius: 7px; }
+.fantasy-rpg #menuHome #menuOptions .menu-options-content { top: calc(100% + 6px); bottom: auto; left: auto; right: 0; width: min(280px, 72vw); background: #181129; border-color: #a763cf; }
+.isekai-hero { grid-area: 2 / 1 / 4 / 2; position: relative; margin: 0; min-height: 0; border-radius: 14px; overflow: hidden; box-shadow: 0 0 20px #582c82aa; }
+.isekai-hero img { display: block; width: 100%; height: 100%; position: absolute; object-fit: cover; object-position: 46% 15%; }
+.isekai-hero figcaption { position: absolute; inset: auto 0 0; padding: 22px 12px 9px; background: linear-gradient(transparent, #0a081c); color: #f2ddff; font: 700 clamp(18px, 3vw, 34px) Georgia, serif; }
+#menuHome .hub-layout { grid-area: 2 / 2; grid-template-columns: minmax(0,1fr) minmax(0,1.06fr); align-items: stretch; gap: clamp(7px, 1vw, 16px); }
+#menuHome :is(.hub-party-stage,.hub-expedition) { background: linear-gradient(145deg,#231442ea,#0c1026ef 75%); border: 1px solid #b673ef; border-radius: 12px; box-shadow: inset 0 0 18px #8947b938, 0 0 15px #a250ff46; }
+#menuHome .hub-party-stage { grid-template-rows: auto 1fr; }
+#menuHome .hub-section-title { color: #f4e9ff; }
+#menuHome #hubTeamReady { background: #39215b; color: #f7e0ff; border-color: #bd79e4; }
+#menuHome .hub-hero { background: radial-gradient(ellipse at 50% 55%, #952dce65, #15102d 70%); border-color: #624987; min-height: clamp(68px, 24vh, 160px); }
+#menuHome .hub-hero:first-child { border-color: #e58aff; box-shadow: inset 0 0 11px #c064ff65, 0 0 9px #bb59ff77; }
+#menuHome .hub-expedition .expedition-art { background: url('assets/isekai/lab.webp') center / cover; min-height: clamp(43px, 14vh, 130px); border-color: #7e51ac; }
+.fantasy-rpg #menuHome #hubLaunch #play { color: #231001; background: linear-gradient(#ffe290,#ffb831 64%,#f48e15); box-shadow: 0 0 12px #ffad3877; font-size: clamp(10px, 1.5vw, 18px); }
+#menuHome #hubNavigation { grid-area: 3 / 2; border: 0; padding: 0; overflow: visible; }
+.fantasy-rpg #menuHome #hubNavigation .hub-shortcuts { display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); }
+.fantasy-rpg #menuHome #hubNavigation .hub-shortcuts button {
+  flex-direction: column; justify-content: center; gap: 4px; text-align: center;
+  min-height: clamp(52px, 16vh, 138px); padding: 5px 2px;
+  color: #f9eaff; background: linear-gradient(148deg,#49216c,#181332 60%,#461867); border: 1px solid #b869ef;
+  box-shadow: inset 0 0 15px #9559c54d, 0 0 10px #8d43c94a;
+}
+#menuHome #hubNavigation .shortcut-symbol { color: #f1bcff; font-size: clamp(17px, 4vh, 34px); height: auto; flex-basis: auto; }
+#menuHome #hubNavigation .hub-shortcuts small { display: none; }
+#menuHome .hub-footer { grid-area: 4 / 1 / 5 / -1; justify-content: flex-end; padding: 3px 0; border-color: #a257d866; }
+#hubSettings:empty { display: none; }
+#menuHome button:not(:disabled):hover { filter: brightness(1.18); }
+.roster-list button span small { display: block; font-size: .72em; color: #adc8d7; font-weight: 500; }
+@media(max-width: 850px) and (orientation: landscape) {
+  .fantasy-rpg #menu #menuHome:not(.hidden) { --portrait-column: minmax(0,27%); }
+  #menuHome .hub-header button,#menuHome .hub-header #menuOptions summary { padding: 4px 6px; min-height: 30px; font-size: 9px; }
+  #menuHome .hub-expedition p { display: block; }
+  .fantasy-rpg #hubResources .wallet-chip { gap: 3px; }
+}
+@media(max-height: 410px) {
+  #menuHome .hub-footer { min-height: 0; }
+  .fantasy-rpg #menuHome #hubLaunch #play { min-height: 32px; }
+}
+#menuHome #hubBrand { flex: 1 1 auto; }
+body.fantasy-rpg #menu #menuHome #hubBrand h1 {
+  font: 700 clamp(15px, 2.9vw, 44px)/1.15 Georgia, serif;
+  white-space: nowrap; letter-spacing: .015em;
+}
+#menuHome #menuOptions { flex: 0 0 auto; width: auto; }
+#menuHome .hub-expedition {
+  background: linear-gradient(0deg,#0c0a21 2%,#0c0a21c4 32%,#13092e00 74%),
+    url('assets/isekai/lab.webp') center top / 100% auto no-repeat #12102a;
+}
+body.fantasy-rpg #menu #menuHome #hubLaunch #play { width: 100%; }
+body.fantasy-rpg #menu #menuHome #hubNavigation .shop-shortcut { grid-column: auto; opacity: 1; }
+
+/* Neon Isekai treatment shared by the home hub, hero catalog and formation. */
+body.fantasy-rpg #menu:has(#skillsPanel:not(.hidden)),
+body.fantasy-rpg #menu:has(#organismsPanel:not(.hidden)) {
+  background:
+    radial-gradient(ellipse at 20% 72%, #a22ce64a, transparent 42%),
+    radial-gradient(ellipse at 84% 18%, #6123a744, transparent 44%),
+    linear-gradient(180deg,#080819b8 0%,#0a0b21dd 54%,#120a2de8 100%),
+    url('assets/isekai/city.webp') center bottom / cover no-repeat #09091b;
+}
+body.fantasy-rpg #menu > .card:has(#skillsPanel:not(.hidden)),
+body.fantasy-rpg #menu > .card:has(#organismsPanel:not(.hidden)) {
+  display: flex;
+  flex-direction: column;
+  width: min(1540px, calc(100vw - 28px));
+  height: min(920px, calc(100dvh - 28px));
+  max-height: calc(100dvh - 28px);
+  padding: clamp(10px, 1.6vw, 22px);
+  overflow: hidden;
+  border: 1px solid #b56bf0;
+  border-radius: 16px;
+  background: linear-gradient(145deg,#1b1239ed 0%,#0b1025f5 62%,#170d31ee 100%);
+  box-shadow: inset 0 0 30px #a044dc22, 0 0 28px #9b4bd64d, 0 20px 90px #000b;
+}
+body.fantasy-rpg #skillsPanel:not(.hidden) {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  min-height: 0;
+  text-align: left;
+}
+body.fantasy-rpg #skillsPanel .panel-header,
+body.fantasy-rpg #organismsPanel .panel-header {
+  flex: none;
+  min-height: 48px;
+  margin: 0 0 10px;
+  padding: 0 0 10px;
+  border-bottom: 1px solid #bd70ec77;
+  background: linear-gradient(180deg,#21153ee8 0%,#120d2b00 100%);
+}
+body.fantasy-rpg #skillsPanel .panel-header h2,
+body.fantasy-rpg #organismsPanel .panel-header h2 {
+  color: #f6edff;
+  text-shadow: 0 0 18px #d45dff63;
+}
+body.fantasy-rpg #skillsPanel .menu-back,
+body.fantasy-rpg #organismsPanel .menu-back,
+body.fantasy-rpg #formationBack {
+  color: #f1dcff !important;
+  border-color: #c27bf1 !important;
+  background: linear-gradient(145deg,#39205a,#1b1535) !important;
+  box-shadow: inset 0 1px #fff2ff20, 0 0 12px #9d44ca30 !important;
+}
+body.fantasy-rpg #skillsPanel #skillGuide {
+  flex: 1;
+  min-height: 0;
+  grid-template-columns: minmax(165px,.36fr) minmax(0,1.64fr);
+  gap: clamp(8px,1.2vw,16px);
+  overflow: hidden;
+}
+body.fantasy-rpg #skillsPanel .roster-list {
+  min-height: 0;
+  overflow-y: auto;
+  gap: 7px;
+  padding: 2px 5px 2px 2px;
+  scrollbar-color: #9a55c8 #120d29;
+}
+body.fantasy-rpg #skillsPanel .roster-list button {
+  min-height: 58px;
+  gap: 9px;
+  padding: 5px 10px;
+  color: #f4ebff;
+  border: 1px solid #704b91;
+  border-radius: 9px;
+  background: linear-gradient(135deg,#30204d,#15142d 72%);
+  box-shadow: inset 0 0 12px #a33de31c, 0 3px 12px #03030b55;
+  transition: border-color .16s ease, box-shadow .16s ease, transform .16s ease;
+}
+body.fantasy-rpg #skillsPanel .roster-list button[aria-pressed="true"] {
+  border-color: #e18aff !important;
+  background: linear-gradient(120deg,#542279,#241544 72%) !important;
+  box-shadow: inset 0 0 16px #d15dff36, 0 0 14px #bf54f477;
+}
+body.fantasy-rpg #skillsPanel .roster-list button:not([aria-pressed="true"]):hover {
+  border-color: #bc79e5;
+  transform: translateX(2px);
+}
+body.fantasy-rpg #skillsPanel .roster-list button span:last-child { color: #f6edff; }
+body.fantasy-rpg #skillsPanel .roster-list button span small { color: #c5a9df; }
+body.fantasy-rpg #skillsPanel .roster-sprite { width: 48px; height: 48px; }
+body.fantasy-rpg #skillsPanel .roster-detail {
+  min-height: 0;
+  overflow-y: auto;
+  padding: clamp(10px,1.5vw,20px);
+  border: 1px solid #9a59bf;
+  border-radius: 13px;
+  background: linear-gradient(145deg,#21183deb,#10132cf5 68%,#1b1234ee);
+  box-shadow: inset 0 0 22px #9b3ed51e, 0 0 14px #8b42c52b;
+  scrollbar-color: #9a55c8 #120d29;
+}
+body.fantasy-rpg #skillsPanel .roster-character {
+  border: 1px solid #6e4690;
+  border-radius: 11px;
+  background: radial-gradient(ellipse at 50% 58%,#692f8d99,#17132d 72%);
+  box-shadow: inset 0 0 22px #c259ef34;
+}
+body.fantasy-rpg #skillsPanel .roster-detail h3 { color: #f7edff; text-shadow: 0 0 14px #c751e94a; }
+body.fantasy-rpg #skillsPanel .roster-role,
+body.fantasy-rpg #skillsPanel .roster-detail h4 { color: #e3a5ff; }
+body.fantasy-rpg #skillsPanel .roster-detail p { color: #d2c4e3; }
+body.fantasy-rpg #skillsPanel .roster-stats div,
+body.fantasy-rpg #skillsPanel .roster-skills li {
+  border: 1px solid #754c91;
+  border-radius: 8px;
+  background: linear-gradient(145deg,#302047,#18182f);
+  box-shadow: inset 0 0 12px #9c3cdb18;
+}
+body.fantasy-rpg #skillsPanel .roster-stats dt { color: #c7b1da; }
+body.fantasy-rpg #skillsPanel .roster-stats dd,
+body.fantasy-rpg #skillsPanel .roster-skills li b { color: #fff0ff; }
+body.fantasy-rpg #skillsPanel .roster-skills li small { color: #dda0ff; }
+body.fantasy-rpg #skillsPanel .roster-actions { display: flex; flex-wrap: wrap; gap: 6px; }
+body.fantasy-rpg #skillsPanel .roster-actions button {
+  color: #f5e9ff;
+  border: 1px solid #b86bdd;
+  border-radius: 8px;
+  background: linear-gradient(145deg,#49256c,#211537);
+  box-shadow: inset 0 1px #fff2ff22, 0 0 10px #9b40ce33;
+}
+body.fantasy-rpg #skillsPanel .hero-level-panel {
+  border: 1px solid #a35ed0;
+  border-radius: 11px;
+  background: linear-gradient(105deg,#27183fee,#11132af5);
+  box-shadow: inset 0 0 16px #a445d621;
+}
+body.fantasy-rpg #skillsPanel .hero-level-panel [data-buy-hero-level] {
+  color: #24102d;
+  border-color: #f1b6ff;
+  background: linear-gradient(180deg,#f4bdff,#c75bfa 65%,#8d38d4);
+  box-shadow: 0 0 14px #c653ef77;
+}
+body.fantasy-rpg #skillsPanel #heroLevelMessage { color: #baf7db; }
+
+/* Formation uses the same illuminated panels and violet city backdrop as the hub. */
+body.fantasy-rpg #formationScreen {
+  background:
+    radial-gradient(ellipse at 17% 75%,#a22ce64a,transparent 42%),
+    radial-gradient(ellipse at 84% 18%,#6123a744,transparent 44%),
+    linear-gradient(180deg,#080819c4 0%,#0a0b21e8 60%,#120a2de8 100%),
+    url('assets/isekai/city.webp') center bottom / cover no-repeat #09091b;
+}
+body.fantasy-rpg .formation-shell {
+  width: min(1500px,100%);
+  max-height: none;
+  padding: clamp(10px,1.5vw,20px);
+  border: 1px solid #b56bf0;
+  border-radius: 16px;
+  background: linear-gradient(145deg,#1b1239eb 0%,#0b1025f2 62%,#170d31ee 100%);
+  box-shadow: inset 0 0 30px #a044dc22, 0 0 28px #9b4bd64d, 0 20px 90px #000b;
+}
+body.fantasy-rpg .formation-shell>header {
+  gap: clamp(8px,1.6vw,20px);
+  padding-bottom: 10px;
+  border-color: #bd70ec77;
+}
+body.fantasy-rpg .formation-shell>header h2 {
+  color: #f6edff;
+  text-shadow: 0 0 18px #d45dff63;
+}
+body.fantasy-rpg .formation-rule { color: #d3b8e8; }
+body.fantasy-rpg .formation-layout h3 { color: #e4a6ff; }
+body.fantasy-rpg .formation-catalog,
+body.fantasy-rpg .formation-center,
+body.fantasy-rpg #heroDetail {
+  padding: clamp(8px,1.1vw,14px);
+  border: 1px solid #814da4;
+  border-radius: 12px;
+  background: linear-gradient(145deg,#241a3beb,#11152cf5 74%);
+  box-shadow: inset 0 0 18px #a044dc20, 0 0 12px #8b42c52b;
+  scrollbar-color: #9a55c8 #120d29;
+}
+body.fantasy-rpg #heroCatalog { gap: 6px; }
+body.fantasy-rpg #heroCatalog .hero-catalog-card {
+  min-height: 53px;
+  padding: 4px 8px;
+  border: 1px solid #704b91;
+  border-radius: 9px;
+  color: #f4ebff;
+  background: linear-gradient(135deg,#30204d,#15142d 72%);
+  box-shadow: inset 0 0 12px #a33de31c, 0 3px 12px #03030b55;
+}
+body.fantasy-rpg #heroCatalog .hero-catalog-card[aria-pressed="true"] {
+  border-color: #e18aff !important;
+  background: linear-gradient(120deg,#542279,#241544 72%) !important;
+  box-shadow: inset 0 0 16px #d15dff36, 0 0 14px #bf54f477;
+}
+body.fantasy-rpg .team-slot {
+  border-color: #704b91;
+  border-radius: 10px;
+  background: linear-gradient(115deg,#332047,#15162f 78%);
+}
+body.fantasy-rpg .team-slot.selected {
+  border-color: #e18aff;
+  box-shadow: inset 3px 0 #e18aff, 0 0 13px #bf54f44d;
+}
+body.fantasy-rpg .team-slot small { color: #d2b9e8; }
+body.fantasy-rpg .team-slot b { color: #fff1ff; }
+body.fantasy-rpg .formation-preview-member small { color: #d3a1ed; }
+body.fantasy-rpg #formationPreview {
+  border-color: #754b91;
+  border-radius: 11px;
+  background: radial-gradient(ellipse at 50% 78%,#a335dc4a,transparent 68%),#15142bcc;
+  box-shadow: inset 0 0 20px #923fc522;
+}
+body.fantasy-rpg #heroDetail { border-color: #9a59bf; }
+body.fantasy-rpg #heroDetail>.detail-role,
+body.fantasy-rpg #heroDetail h4 { color: #e3a5ff; }
+body.fantasy-rpg #heroDetail>h3 { color: #f7edff; text-shadow: 0 0 14px #c751e94a; }
+body.fantasy-rpg #heroDetail p { color: #d2c4e3; }
+body.fantasy-rpg .hero-base-attack,
+body.fantasy-rpg .hero-unique-detail { border-color: #754b91; }
+body.fantasy-rpg .hero-base-attack b,
+body.fantasy-rpg .hero-stats dd,
+body.fantasy-rpg .hero-skill-list b { color: #fff0ff; }
+body.fantasy-rpg .hero-stats>div,
+body.fantasy-rpg .hero-skill-list li {
+  border: 1px solid #704b91;
+  border-radius: 8px;
+  padding: 7px;
+  background: linear-gradient(145deg,#302047,#18182f);
+}
+body.fantasy-rpg .hero-stats dt,
+body.fantasy-rpg .hero-skill-list small { color: #cbb4dc; }
+body.fantasy-rpg .formation-shell>footer { border-color: #bd70ec77; }
+body.fantasy-rpg .formation-shell>footer span { color: #d2c0e5; }
+body.fantasy-rpg .formation-shell>footer #formationStart {
+  color: #271300;
+  border-color: #ffe19a;
+  background: linear-gradient(180deg,#ffe99d,#ffb831 64%,#f28b18);
+  box-shadow: 0 0 16px #ffad3877, inset 0 1px #fff8d1;
+}
+@media (max-width: 650px) and (orientation: landscape) {
+  body.fantasy-rpg #menu > .card:has(#skillsPanel:not(.hidden)),
+  body.fantasy-rpg #menu > .card:has(#organismsPanel:not(.hidden)) { width: calc(100vw - 14px); height: calc(100dvh - 14px); max-height: calc(100dvh - 14px); padding: 7px; }
+  body.fantasy-rpg #skillsPanel .panel-header { min-height: 38px; padding-bottom: 5px; margin-bottom: 6px; }
+  body.fantasy-rpg #skillsPanel #skillGuide { grid-template-columns: minmax(120px,.34fr) minmax(0,1.66fr); gap: 7px; }
+  body.fantasy-rpg #skillsPanel .roster-list button { min-height: 43px; padding: 2px 5px; gap: 4px; font-size: 11px; }
+  body.fantasy-rpg #skillsPanel .roster-sprite { width: 36px; height: 36px; }
+  body.fantasy-rpg #skillsPanel .roster-detail { padding: 8px; }
+  body.fantasy-rpg .formation-shell { padding: 7px; }
+  body.fantasy-rpg .formation-layout { grid-template-columns: minmax(120px,.86fr) minmax(145px,1fr) minmax(180px,1.25fr); gap: 6px; padding: 7px 0; }
+  body.fantasy-rpg .formation-catalog,body.fantasy-rpg .formation-center,body.fantasy-rpg #heroDetail { padding: 7px; }
+  body.fantasy-rpg #heroCatalog .hero-catalog-card { min-height: 40px; }
+}
+body.fantasy-rpg #skillsPanel .roster-actions [data-open-appearance] {
+  color: var(--rarity);
+  border-color: var(--rarity);
+  box-shadow: inset 0 -2px var(--rarity), 0 0 12px color-mix(in srgb,var(--rarity) 28%,transparent);
+}
+
+/* One-time manga intro and chapter archive. */
+.history-menu-button .shortcut-symbol{color:#e5c889;border-color:#e5c88955;background:#2a2418}
+.history-intro{max-width:680px;margin:5px auto 18px;color:#d0c3e5;line-height:1.55}
+#historyChapters{display:grid;gap:12px;text-align:left}
+.history-chapter{display:grid;grid-template-columns:54px minmax(0,1fr) auto;align-items:center;gap:14px;padding:15px;border:1px solid #a76be0;border-radius:13px;background:linear-gradient(110deg,#25183a,#11182d);box-shadow:inset 0 0 22px #b743f31c,0 0 16px #a746d41c}
+.history-chapter-mark{display:grid;place-items:center;width:48px;height:58px;border:1px solid #e5c889;border-radius:8px;color:#ffe8ad;font:700 21px Georgia,serif;background:linear-gradient(145deg,#49341f,#201a29)}
+.history-chapter small{color:#c996ff;font-size:10px;font-weight:800;letter-spacing:.12em}.history-chapter h3{margin:4px 0;color:#fff0ff;font:700 19px Georgia,serif}.history-chapter p{margin:0;color:#cbbbd9;font-size:12px;line-height:1.4}.history-chapter button{min-width:128px;padding:11px 14px;border:1px solid #dca9ff;border-radius:9px;color:#fff;background:linear-gradient(145deg,#562b72,#261839);box-shadow:0 0 15px #c449f533}
+.manga-reader{width:min(1000px,calc(100vw - 24px));max-width:none;max-height:min(680px,calc(100dvh - 24px));padding:0;overflow:hidden;border:1px solid #b785ea;border-radius:20px;color:#f5eeff;background:#090d1c;box-shadow:0 0 0 1px #e1b7ff22,0 0 50px #8c31dd66}
+.manga-reader::backdrop{background:#03050cce;backdrop-filter:blur(6px)}
+.manga-book{display:grid;grid-template-rows:auto minmax(0,1fr) auto;height:min(680px,calc(100dvh - 24px));min-height:0;background:radial-gradient(ellipse at 50% 0,#331e52 0,transparent 48%),linear-gradient(145deg,#11172a,#080c18 70%)}
+.manga-header{display:grid;grid-template-columns:minmax(0,1fr) auto auto;align-items:center;gap:14px;padding:13px 18px;border-bottom:1px solid #9c65c675;background:#0b1020eF}.manga-header small{color:#cca5f4;font-size:10px;font-weight:800;letter-spacing:.16em}.manga-header h2{margin:3px 0 0;color:#fff1c8;font:700 clamp(20px,3vw,29px) Georgia,serif;letter-spacing:.015em}.manga-header>button{width:42px;height:42px;border:1px solid #9371b6;border-radius:10px;color:#f5e7ff;background:#1b1930;font-size:25px}.manga-header>button[hidden]{display:none}
+.manga-hero{display:flex;align-items:center;gap:7px;padding:4px 10px 4px 5px;border:1px solid #b682df70;border-radius:30px;background:#19132a}.manga-hero img{width:36px;height:36px;object-fit:cover;object-position:50% 23%;border-radius:50%;border:1px solid #cf9aff}.manga-hero b{font-size:12px;color:#f1d6ff}
+.manga-page{min-height:0;overflow-y:auto;padding:clamp(14px,3vw,26px);overscroll-behavior:contain}.manga-page-heading{display:flex;align-items:baseline;justify-content:space-between;gap:15px;margin-bottom:14px}.manga-page-heading span{color:#c297ec;font-size:10px;font-weight:850;letter-spacing:.14em}.manga-page-heading h3{margin:0;color:#fff0cc;font:700 clamp(19px,3vw,26px) Georgia,serif;text-align:right}
+#mangaPanels{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;align-items:start;min-height:0}
+.manga-frame{position:relative;aspect-ratio:1.34;min-height:230px;max-height:min(44dvh,390px);overflow:hidden;border:2px solid #111827;border-radius:3px 10px 3px 10px;background:#121522;box-shadow:0 0 0 1px #e7d5b655,4px 5px 0 #02040a}
+.manga-frame:nth-child(2){border-radius:10px 3px 10px 3px}
+.manga-art{display:block;width:100%;height:100%;object-fit:cover;object-position:center;background:#222}
+.manga-dialogue{position:absolute;right:10px;bottom:10px;left:10px;max-width:92%;padding:9px 12px;border:2px solid #31344b;border-radius:15px 15px 15px 4px;color:#1b2030;background:linear-gradient(150deg,#fffef5f5,#f0e7dff2);box-shadow:2px 3px 0 #14131d99}
+.manga-dialogue small{display:block;margin:-2px 0 3px;color:#6d3585;font-size:9px;font-weight:950;letter-spacing:.1em;text-transform:uppercase}
+.manga-dialogue p{margin:0;color:#1b2030;font-size:clamp(12px,1.38vw,15px);font-weight:700;line-height:1.3;text-wrap:pretty}
+.manga-sfx{left:auto;right:10px;bottom:12px;max-width:82%;border-color:#512b20;color:#431d12;background:linear-gradient(145deg,#fff4bd,#f6a14d);transform:rotate(-2deg)}
+.manga-sfx small{color:#9c371c}
+.manga-controls{display:grid;grid-template-columns:1fr minmax(100px,220px) 1fr;align-items:center;gap:12px;padding:12px 18px;border-top:1px solid #9c65c675;background:#0b1020}.manga-controls button{min-height:43px;padding:8px 14px;border:1px solid #ac80d0;border-radius:9px;color:#f6eaff;background:linear-gradient(145deg,#28213d,#141a2e);font-weight:800}.manga-controls button:last-child{justify-self:end;color:#210f2f;border-color:#f4d99a;background:linear-gradient(180deg,#ffe7a8,#d4a0ef);box-shadow:0 0 14px #c259e333}.manga-controls button:disabled{opacity:.35}.manga-progress{display:grid;gap:6px;text-align:center;color:#d7baf3;font-size:11px;font-weight:800;letter-spacing:.1em}.manga-progress>div{height:5px;overflow:hidden;border-radius:9px;background:#292238}.manga-progress i{display:block;height:100%;border-radius:9px;background:linear-gradient(90deg,#bd6cff,#ffe4a1);transition:width .22s ease}
+@media(max-width:700px){.manga-reader{width:calc(100vw - 14px);max-height:calc(100dvh - 14px);border-radius:13px}.manga-book{height:calc(100dvh - 14px)}.manga-header{padding:9px 11px;gap:8px}.manga-header>button{width:36px;height:36px}.manga-page{padding:12px}.manga-page-heading{margin-bottom:9px}#mangaPanels{gap:8px}.manga-frame{min-height:170px;max-height:none}.manga-dialogue{right:6px;bottom:6px;left:6px;padding:7px 9px}.manga-dialogue p{font-size:12px}.manga-controls{grid-template-columns:1fr auto 1fr;gap:6px;padding:9px}.manga-controls button{min-height:39px;padding:7px 9px;font-size:11px}.manga-progress{min-width:66px}.history-chapter{grid-template-columns:42px minmax(0,1fr);gap:10px;padding:11px}.history-chapter-mark{width:40px;height:48px}.history-chapter button{grid-column:2;justify-self:start}.history-chapter h3{font-size:16px}}
+@media(max-width:700px) and (orientation:portrait){#mangaPanels{grid-template-columns:1fr}.manga-frame{aspect-ratio:1.45;min-height:190px}}
+@media(max-width:430px){.manga-page-heading{display:block}.manga-page-heading h3{text-align:left;margin-top:4px}.manga-controls{grid-template-columns:1fr 1fr}.manga-progress{grid-column:1/-1;grid-row:1}}
+
+#mangaPanels .comic-cell{min-width:0;background:#fbf3e4;border:3px solid #171223;padding:0 0 .45rem;box-shadow:3px 4px #100a19;text-align:left}
+.comic-cell img{width:100%;height:auto;display:block}
+#isekaiPrologue .comic-cell p{margin:.55rem .7rem .15rem;padding:.5rem .8rem;background:white;border:1.5px solid #272031;border-radius:1.2rem 1.2rem 1.2rem .2rem;color:#20172a;font:500 clamp(14px,1.3vw,17px)/1.35 system-ui}
+.comic-cell p b{display:block;color:#6a317b;font-size:.72em;letter-spacing:.05em}
+.comic-cell p:nth-child(odd){margin-left:1.6rem!important;border-radius:1.2rem 1.2rem .2rem 1.2rem!important}
+.comic-editor-launch p{margin:6px 0 10px;color:#c7bad8;font-size:12px;line-height:1.45}.comic-editor-launch small{display:block;margin-top:7px;color:#d4b4f5;font-size:10px}
+.comic-editor-dialog{width:min(940px,calc(100vw - 20px));max-height:calc(100dvh - 20px);padding:0;overflow:hidden;border:1px solid #bb85ee;border-radius:16px;color:#f6ecff;background:#0c1020;box-shadow:0 0 32px #9639d966}.comic-editor-dialog::backdrop{background:#05040bd9;backdrop-filter:blur(4px)}.comic-editor-dialog article{display:grid;grid-template-rows:auto auto minmax(0,1fr) auto;max-height:calc(100dvh - 22px)}.comic-editor-dialog header{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 16px;border-bottom:1px solid #754e9588}.comic-editor-dialog header small{color:#c998f5;font-size:10px;font-weight:850;letter-spacing:.12em}.comic-editor-dialog h2{margin:2px 0;color:#fff0c5;font:700 22px Georgia,serif}.comic-editor-dialog header button,.comic-editor-dialog button,.comic-import-button{border:1px solid #a77bc7;border-radius:9px;padding:8px 11px;color:#f8edff;background:linear-gradient(145deg,#2d2141,#171629);font-weight:750}.comic-editor-dialog button:disabled{opacity:.4}.comic-editor-toolbar{display:flex;align-items:center;gap:8px;flex-wrap:wrap;padding:10px 14px;border-bottom:1px solid #332844}.comic-editor-toolbar label,.comic-editor-panel label{display:grid;gap:4px;color:#d7c3ec;font-size:11px;font-weight:700}.comic-editor-toolbar input,.comic-editor-toolbar select,.comic-editor-panel input,.comic-editor-panel textarea{box-sizing:border-box;min-width:0;border:1px solid #755b8e;border-radius:7px;padding:8px;color:#fff;background:#171629;font:inherit}.comic-editor-toolbar .comic-page-title{flex:1;min-width:170px}.comic-editor-toolbar output{color:#dfc8fb;font-size:11px}.comic-editor-panels{overflow:auto;overscroll-behavior:contain;padding:12px;display:grid;gap:12px}.comic-editor-panel{display:grid;grid-template-columns:minmax(150px,.8fr) minmax(0,1.2fr);align-items:start;gap:8px;padding:11px;border:1px solid #60447a;border-radius:12px;background:linear-gradient(120deg,#19142b,#111626)}.comic-editor-panel>header{grid-column:1/-1;padding:0;border:0}.comic-editor-panel>header b{color:#ffe3a4;font-size:11px;letter-spacing:.1em}.comic-editor-panel>img{grid-row:2/span 3;width:100%;max-height:180px;object-fit:contain;border-radius:6px;background:#090a13}.comic-editor-panel>label{grid-column:2}.comic-editor-panel .comic-upload-label{width:max-content;max-width:100%;padding:8px 10px;border:1px dashed #9868c3;border-radius:8px;cursor:pointer}.comic-editor-lines{grid-column:1/-1;display:grid;gap:8px}.comic-editor-line{display:grid;grid-template-columns:minmax(120px,.65fr) minmax(0,1.35fr) auto;align-items:end;gap:8px;padding:8px;border-radius:9px;background:#0e1220}.comic-editor-line button{padding:6px 8px;color:#f2b3cd}.comic-import-button{position:relative;display:inline-block;cursor:pointer}
+@media(max-width:640px){.comic-editor-dialog{width:calc(100vw - 12px);max-height:calc(100dvh - 12px)}.comic-editor-dialog article{max-height:calc(100dvh - 14px)}.comic-editor-dialog h2{font-size:18px}.comic-editor-toolbar{padding:8px;gap:6px}.comic-editor-toolbar button,.comic-editor-toolbar .comic-import-button{font-size:10px;padding:7px}.comic-editor-panel{grid-template-columns:1fr}.comic-editor-panel>img{grid-row:auto;max-height:190px}.comic-editor-panel>label{grid-column:1}.comic-editor-line{grid-template-columns:1fr 1fr}.comic-editor-line button{grid-column:1/-1;justify-self:end}}
+
+/* One landscape panel per beat, with independent space for the conversation. */
+#isekaiPrologue{width:min(1100px,98dvw);height:min(680px,98dvh);max-height:none;box-sizing:border-box}
+#isekaiPrologue .manga-book{height:100%}
+#isekaiPrologue .manga-page{display:grid;grid-template-rows:auto minmax(0,1fr);overflow:hidden;padding:6px 12px}
+#isekaiPrologue .manga-page-heading{display:flex;margin:0 0 4px}
+#isekaiPrologue #mangaPanels{display:block;min-height:0}
+#isekaiPrologue .comic-cell{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);align-items:stretch;height:100%;box-sizing:border-box;padding:0;overflow:hidden}
+#isekaiPrologue .comic-cell img{width:100%;height:100%;min-height:0;object-fit:contain;background:#101020}
+#isekaiPrologue .comic-cell img:only-child{grid-column:1/-1}
+#isekaiPrologue .comic-lines{overflow-y:auto;touch-action:pan-y;overscroll-behavior:contain;padding:4px}
+#isekaiPrologue .manga-controls{grid-template-columns:1fr auto 1fr;padding:4px 10px}
+#isekaiPrologue .manga-progress{grid-column:auto;grid-row:auto}
+#isekaiPrologue .manga-header{padding:4px 12px}
+@media(orientation:portrait) and (pointer:coarse){
+ #isekaiStartup,#isekaiPrologue[open]{position:fixed;inset:0 auto auto 100%;margin:0;width:100dvh;height:100dvw;max-width:none;max-height:none;transform-origin:0 0;transform:rotate(90deg)}
+ #isekaiChoice img{height:52dvw;width:28dvw}
+ body.fantasy-rpg #menu:not(.hidden){position:fixed;inset:0 auto auto 100%;width:100dvh;height:100dvw;transform-origin:0 0;transform:rotate(90deg)}
+ body.fantasy-rpg #menu>.card{max-height:100dvw;max-width:100dvh;overflow:auto}
+ #isekaiPrologue .manga-book{height:100%}
+}
+
+/* Scale from the actual landscape stage, including the rotated mobile stage. */
+#isekaiStartup:has(#isekaiChoice:not([hidden])){background-size:cover;container-type:size}
+#isekaiChoice{width:100%;height:100%;box-sizing:border-box;grid-template-rows:auto minmax(0,1fr);padding:2.5cqh 5cqw;gap:2cqh}
+#isekaiChoice h2{font-size:clamp(17px,6cqh,38px);line-height:1.1}
+#isekaiChoice .isekai-choices{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:2cqw;min-height:0;width:min(100%,115cqh);justify-self:center}
+#isekaiChoice button{position:relative;display:block;padding:0;min-height:0;width:100%;height:100%;background:#141225}
+#isekaiChoice button img{width:100%;height:100%;object-fit:contain;object-position:center;border-radius:0}
+#isekaiChoice button strong{position:absolute;inset:auto 0 0;padding:4cqh 0 1.5cqh;background:linear-gradient(transparent,#100c20ee);color:white;font:700 clamp(17px,5cqh,32px) Georgia,serif}
+#isekaiPrologue{width:100dvw;height:100dvh;max-height:none;border:0;border-radius:0}
+@media(orientation:portrait) and (pointer:coarse){#isekaiPrologue[open]{width:100dvh;height:100dvw}}
+#isekaiPrologue .manga-book{position:relative;display:block;height:100%;container-type:size;background:#0c0a16}
+#isekaiPrologue .manga-page,#isekaiPrologue #mangaPanels,#isekaiPrologue .comic-cell{position:absolute;inset:0;display:block;padding:0;margin:0;border:0;background:transparent}
+#isekaiPrologue .comic-cell img{width:100%;height:100%;object-fit:contain;background:transparent}
+#isekaiPrologue .manga-header{position:absolute;z-index:2;top:1cqh;right:1cqw;padding:0;background:transparent;border:0}
+#isekaiPrologue .manga-header>div,#isekaiPrologue .manga-page-heading{display:none}
+#isekaiPrologue .comic-lines{position:absolute;bottom:14cqh;left:max(3cqw,calc(50% - 61cqh));max-width:min(68cqw,76cqh);padding:0;overflow:visible}
+#isekaiPrologue .comic-cell .comic-lines p{position:relative;margin:0!important;padding:.45em .85em;border-radius:1.2em 1.2em 1.2em .2em!important;background:#fffaf0;color:#211a26;font-size:clamp(12px,3.5cqh,20px);line-height:1.22;box-shadow:2px 3px 0 #211a2688}
+#isekaiPrologue .manga-controls{position:absolute;inset:auto 0 0;z-index:1;border:0;background:linear-gradient(transparent,#100d1bdc);padding:1cqh 2cqw;pointer-events:none}
+#isekaiPrologue .manga-controls button{pointer-events:auto;justify-self:start;min-height:32px}
+#isekaiPrologue .manga-controls button:last-child{justify-self:end}
+
+#isekaiChoice:has(#travelerForm:not([hidden])){grid-template-rows:auto minmax(0,1fr) auto}
+#travelerForm:not([hidden]){display:flex;align-items:center;justify-content:center;gap:1em;flex-wrap:wrap}
+#travelerForm input,#isekaiChoice #travelerForm button{width:auto;height:auto;border:1px solid #ba89e7;border-radius:8px;padding:.55em .9em;font:inherit;color:white;background:#20172e}
+#isekaiChoice button[aria-pressed=true]{outline:3px solid #f7c477}
+
+/* Name entry is its own clear step after choosing a portrait. */
+#isekaiChoice:has(#travelerForm:not([hidden])){grid-template-rows:auto minmax(0,1fr)}
+#travelerForm:not([hidden]){display:grid;grid-template-columns:minmax(125px,24cqh) minmax(0,1fr) auto;grid-template-rows:1fr auto;align-items:center;gap:1.5cqh 2cqw;width:min(100%,112cqh);justify-self:center;box-sizing:border-box;padding:1.5cqh 2cqw;border:1px solid #b76fe7;border-radius:16px;background:#120e20eF}
+#travelerForm .traveler-preview{grid-column:1;grid-row:1/3;position:relative;height:100%;min-height:0;overflow:hidden;border-radius:12px}
+#travelerForm .traveler-preview img{width:100%;height:100%;object-fit:cover;object-position:center 30%}
+#travelerKind{position:absolute;inset:auto 0 0;padding:.45em;background:linear-gradient(transparent,#120e20);color:white;font-weight:700}
+#travelerForm label{grid-column:2/4;grid-row:1;align-self:end;text-align:left;font-size:clamp(16px,4cqh,24px);font-weight:700;color:#f5dcff}
+#travelerForm input{grid-column:2;grid-row:2;width:100%;min-width:0;box-sizing:border-box;font-size:clamp(15px,3.5cqh,21px);min-height:5cqh}
+#travelerForm button[type=submit]{grid-column:3;grid-row:2;white-space:nowrap}
+#travelerForm #changeTraveler{grid-column:3;grid-row:1;justify-self:end;width:auto;height:auto;padding:.4em .7em;font-size:clamp(12px,2.5cqh,17px)}
+#travelerForm button[type=submit]{width:auto;height:auto;padding:.55em .85em}
+#travelerForm input:focus-visible{outline:3px solid #ffd77d;outline-offset:2px}
+#isekaiChoice .isekai-choices[hidden]{display:none}
+@media(max-aspect-ratio:1/1){
+ #isekaiChoice:has(#travelerForm:not([hidden])){grid-template-rows:auto minmax(0,1fr)}
+ #travelerForm:not([hidden]){width:100%;grid-template-columns:minmax(95px,24cqh) minmax(0,1fr) auto}
+}

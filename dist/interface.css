@@ -1,0 +1,187 @@
+body.fantasy-rpg {
+  --shell: #071019;
+  --panel: #101e2c;
+  --plate: #182938;
+  --edge: #345264;
+  --ice: #bce8e4;
+  --ink: #eef8f7;
+  --muted: #9eb7c5;
+  --signal: #aef7cb;
+  --cut: polygon(0 0, calc(100% - 9px) 0, 100% 9px, 100% 100%, 9px 100%, 0 calc(100% - 9px));
+  font-family: system-ui, sans-serif;
+  color: var(--ink);
+}
+
+/* Menu panels share the same surfaces and cut-corner controls. */
+body.fantasy-rpg :is(#menu,#formationScreen) {
+  background: radial-gradient(ellipse at 23% 0%, #1d3c4b, transparent 55%), var(--shell);
+}
+body.fantasy-rpg .screen:not(#menu) { background-color: #060c15ee; }
+body.fantasy-rpg .screen :is(button,summary) { cursor: pointer; }
+body.fantasy-rpg .screen button:not(.clear-slot):not([data-level-slide]) {
+  border-radius: 0;
+  border: 1px solid var(--edge);
+  clip-path: var(--cut);
+  background: linear-gradient(158deg,#243e4b,#142631 60%,#12212d);
+  color: var(--ink);
+  box-shadow: inset 0 -3px #07101b70;
+  text-shadow: none;
+  transition: filter .12s, border-color .12s;
+}
+body.fantasy-rpg .screen button:is(#play,#startLevel1,#formationStart,#resume,#retry,#bossRewardContinue,#confirmOrganism):not(:disabled) {
+  background: linear-gradient(145deg,#cbffe5,#78d8b1);
+  border-color: #c3ffe4;
+  color: #071c16;
+  box-shadow: inset 0 -3px #30856770;
+  font-weight: 850;
+}
+body.fantasy-rpg .screen button:not(:disabled):hover { filter: brightness(1.16); }
+body.fantasy-rpg .screen button:not(:disabled):active { filter: brightness(.84); }
+body.fantasy-rpg :is(button,select,summary):focus-visible { outline: 2px solid #e5fff7; outline-offset: -3px; }
+body.fantasy-rpg .screen button:is([aria-pressed="true"],[aria-selected="true"],.selected):not(#interfaceSound) { border-color: #8adaca; }
+body.fantasy-rpg .screen button:disabled { opacity: .55; cursor: default; }
+body.fantasy-rpg .screen select { background: #132a39; border: 1px solid var(--edge); color: var(--ink); border-radius: 4px; }
+body.fantasy-rpg .screen h2, body.fantasy-rpg #menu .panel-header h2, body.fantasy-rpg #pauseScreen h2 {
+  font: 800 clamp(18px, 3vw, 28px)/1.06 system-ui,sans-serif;
+  letter-spacing: .035em;
+  color: var(--ink);
+}
+body.fantasy-rpg #menu > .card { padding: max(8px,env(safe-area-inset-top)) var(--safe-r) var(--safe-b) var(--safe-x); }
+
+/* Entry screen uses the laboratory artwork as the expedition card. */
+body.fantasy-rpg #menuHome:not(.hidden) { grid-template-rows: auto minmax(135px, 1fr) auto auto; gap: 8px; max-width: 1210px; min-height: 100%; }
+.hub-header { min-height: 41px; padding: 0 0 6px; gap: 8px; border-color: var(--edge); }
+body.fantasy-rpg #menuHome #hubBrand h1 { color: var(--ink); -webkit-text-fill-color: var(--ink); font-size: clamp(19px, 4vw, 40px); font-weight: 900; letter-spacing: .06em; }
+body.fantasy-rpg #hubFullscreen,body.fantasy-rpg #interfaceSound { min-height: 34px; padding: 5px 8px; font-size: 9px; white-space: nowrap; }
+body.fantasy-rpg #hubResources .meta-wallet { gap: 4px; }
+body.fantasy-rpg #hubResources .wallet-chip { min-width: 0; padding: 4px 7px; border-radius: 4px; }
+body.fantasy-rpg #hubResources .meta-wallet b { font-size: 13px; }
+.hub-layout { grid-template-columns: minmax(0, 1fr) minmax(0, 1.45fr); gap: 8px; }
+.hub-party-stage { border-radius: 4px; border-color: var(--edge); background: #101f2ddc; padding: 8px; gap: 6px; }
+.hub-hero { min-height: 55px; border-radius: 3px; border-color: #416372; background: #132734; }
+.hub-hero:first-child { border-color: #95dec9; }
+.hub-hero .hero-portrait { width: min(100%, 84px); height: clamp(32px, 12vh, 74px); }
+.hub-hero b { font-size: clamp(9px, 1.6vw, 15px); }
+.hub-hero small { font-size: 9px; }
+body.fantasy-rpg #hubEditTeam { min-height: 32px; padding: 4px; font-size: 10px; }
+.hub-expedition {
+  position: relative; isolation: isolate; justify-content: flex-end;
+  background: linear-gradient(0deg,#08111af8 6%,#08111a30 78%),url('assets/map/laboratory-scene-3d.jpg') center 55%/cover;
+  padding: clamp(8px, 2vw, 20px); border-radius: 4px; border-color: #426979; text-align: left;
+}
+.hub-expedition .expedition-art { display: none; }
+.hub-expedition p { display: block; color: #c6e6ef; font-size: 11px; margin: 2px 0 7px; }
+#hubLaunch { margin-top: 0; }
+body.fantasy-rpg #hubLaunch #play { width: fit-content; padding: 6px 12px; min-height: 36px; }
+body.fantasy-rpg #hubNavigation { padding: 0; overflow: visible; }
+body.fantasy-rpg #hubNavigation .hub-shortcuts { display: grid; grid-template-columns: repeat(5,minmax(0,1fr)); gap: 5px; margin: 0; }
+body.fantasy-rpg #hubNavigation .hub-shortcuts button { min-height: 37px; padding: 4px 6px; gap: 4px; }
+body.fantasy-rpg #hubNavigation .hub-shortcuts button small { display: none; }
+body.fantasy-rpg #hubNavigation .shortcut-symbol { font-size: 16px; }
+.hub-footer { min-height: 25px; padding-top: 1px; border-color: var(--edge); }
+
+/* Catalogs, levels, formation and laboratory. */
+body.fantasy-rpg #menu#menu .menu-panel:not(#menuHome) { padding: 0; overscroll-behavior: contain; }
+body.fantasy-rpg #menu#menu .panel-header {
+  min-height: 40px; padding: 0 0 6px; margin: 0 0 8px; background: #0b1723;
+  border-color: var(--edge); grid-template-columns: auto 1fr auto;
+}
+body.fantasy-rpg #menu .menu-back,body.fantasy-rpg #formationBack { min-height: 34px; padding: 5px 10px; }
+body.fantasy-rpg #menu .panel-header h2 { justify-self: start; margin: 0 0 0 8px; text-align: left; }
+body.fantasy-rpg #levelsPanel #levelCarousel {
+  height: auto; min-height: 0; padding: 0 2px 4px; gap: 10px; align-items: stretch; justify-content: safe center;
+}
+body.fantasy-rpg #levelsPanel .level-card {
+  display: grid; grid-template-rows: auto auto; flex: 0 0 min(43%,460px); height: auto; min-height: 0;
+  border: 1px solid #4d7989; border-radius: 4px; background: var(--panel);
+}
+body.fantasy-rpg #levelsPanel .level-picture { height: clamp(76px,36dvh,240px); min-height: 0; }
+body.fantasy-rpg #levelsPanel .level-card-content { display: grid; grid-template-columns: minmax(0,1fr) auto; align-items: center; padding: 6px; gap: 6px; min-height: 0; }
+body.fantasy-rpg #levelsPanel .level-card-content h3 { margin: 0; font-size: clamp(13px, 2.3vw, 21px); }
+body.fantasy-rpg #levelsPanel .level-card-content button { width: auto; min-height: 36px; padding: 5px 7px; font-size: 10px; }
+body.fantasy-rpg #levelsPanel .level-pages { margin: 3px 0 0; }
+body.fantasy-rpg #levelsPanel .level-pages button { width: 34px; height: 32px; min-height: 32px; padding: 0; background: #172e3e; box-shadow: none; border: 1px solid var(--edge); }
+body.fantasy-rpg #labWallet { margin: 5px 0; }
+body.fantasy-rpg #labOrganisms { margin: 5px 0; }
+body.fantasy-rpg #labSpecimen { margin: 5px 0 8px; padding: 6px; border-radius: 4px; }
+body.fantasy-rpg #labSpecimen > img { width: 36px; height: 36px; }
+body.fantasy-rpg #labSpecimen h3 { font-size: 16px; }
+body.fantasy-rpg #labUpgrades { grid-template-columns: repeat(auto-fit,minmax(min(100%,220px),1fr)); gap: 7px; }
+body.fantasy-rpg .lab-upgrade { padding: 8px; gap: 6px; }
+body.fantasy-rpg .lab-upgrade-head img { width: 30px; height: 30px; }
+body.fantasy-rpg .lab-upgrade > button { min-height: 34px; margin-top: auto; }
+body.fantasy-rpg .formation-layout { grid-template-columns: minmax(0,.86fr) minmax(0,1fr) minmax(0,1.25fr); gap: 8px; flex: 1; min-height: 0; }
+body.fantasy-rpg :is(.formation-catalog,.formation-center,#heroDetail) { min-height: 0; overflow: auto; }
+body.fantasy-rpg #formationPreview { display: none; }
+body.fantasy-rpg .formation-shell > footer { padding-top: 5px; }
+body.fantasy-rpg .formation-shell > footer button { min-height: 36px; padding: 5px 10px; }
+body.fantasy-rpg .screen :is(.lab-upgrade,.lab-specimen,.bestiary-card,.crystal-preview,.party-pause-hero,.shared-loadout,.hero-unique-detail,.team-slot,.formation-catalog,.formation-center,#heroDetail,.skill-guide-card,.upgrade-option,.party-upgrade-card,.reward-card) {
+  background: var(--panel); border: 1px solid var(--edge); border-radius: 4px; box-shadow: none;
+}
+body.fantasy-rpg .screen:not(#menu) > .card {
+  border-radius: 4px; border-color: var(--edge); background: #0d1926; box-shadow: 0 12px 44px #0008;
+}
+body.fantasy-rpg #upgradeScreen .party-upgrade-card { min-height: 0; padding: 8px; gap: 5px; }
+body.fantasy-rpg #upgradeScreen h2 { margin: 0 0 5px !important; }
+body.fantasy-rpg #pauseScreen .pause-card { width: min(760px,94vw); gap: 5px; padding: 9px; max-height: 92dvh; }
+body.fantasy-rpg #pauseScreen .pause-tabs button[aria-pressed="true"] { background: #b4f0d3; color: #122821; }
+body.fantasy-rpg #pauseScreen .empty-party-slot { min-height: 25px; padding: 4px; border-color: var(--edge); }
+body.fantasy-rpg #pauseScreen .pause-actions { justify-content: flex-end; width: 100%; }
+body.fantasy-rpg #pauseScreen .pause-actions > button { min-height: 34px; }
+
+/* Keep important indicators at the edges of the battlefield. */
+body.fantasy-rpg #hud { padding: max(4px,env(safe-area-inset-top)) var(--safe-r) 0 var(--safe-x); }
+body.fantasy-rpg #hud .hudtop { grid-template-columns: minmax(0, 174px) minmax(0,1fr) minmax(0,174px); gap: 5px; }
+body.fantasy-rpg #hud .hudtop > .vital-panel:first-child {
+  padding: 4px 5px;
+  border: 1px solid #4a748180; border-radius: 4px; background: #081520df;
+}
+body.fantasy-rpg .vital-heading { margin: 0 0 2px 18px; min-height: 13px; }
+body.fantasy-rpg #organismHudName { font: 800 10px/1.15 system-ui,sans-serif; color: #e7fbff; }
+body.fantasy-rpg .leader-portrait { inset: 1px auto auto 2px; width: 19px; height: 20px; }
+body.fantasy-rpg #hud .vital-grid { gap: 5px; }
+body.fantasy-rpg #hud .vital-grid .statrow { margin: 0 0 1px; gap: 2px; font-size: 8px; line-height: 1.12; white-space: nowrap; }
+body.fantasy-rpg #hud #hptext,body.fantasy-rpg #hud .vital-grid .statrow > span:first-child { font-size: 8px; }
+body.fantasy-rpg #hud .vital-grid .bar { height: 3px; }
+body.fantasy-rpg #teamExperience { margin: 4px 0 0; padding: 0; gap: 2px 3px; background: none; border: 0; }
+body.fantasy-rpg #teamExperience #leveltext,body.fantasy-rpg #teamExperience #xptext { font-size: 9px; line-height: 1.05; color: #c4fae2; }
+body.fantasy-rpg #teamExperience .bar { height: 4px; }
+body.fantasy-rpg #companionStatus { margin: 3px 0 0; gap: 5px; }
+body.fantasy-rpg #companionStatus .companion-chip { border: 0; padding: 0; gap: 2px; }
+body.fantasy-rpg #companionStatus .hero-portrait { width: 13px; height: 15px; }
+body.fantasy-rpg #companionStatus .companion-chip b { font-size: 8px; line-height: 1.1; }
+body.fantasy-rpg #companionStatus .companion-chip small { display: none; }
+body.fantasy-rpg #companionStatus .companion-chip.incapacitated small { display: block; font-size: 8px; overflow: hidden; text-overflow: ellipsis; }
+body.fantasy-rpg #companionStatus .companion-chip i { height: 2px; }
+body.fantasy-rpg #hud #runStatus { gap: 2px 5px; padding: 3px 5px; border-radius: 4px; background: #081520df; border-color: #4a748180; }
+body.fantasy-rpg #hud #timer { font-size: 12px !important; }
+body.fantasy-rpg #hud #wave,body.fantasy-rpg #hud #runDnaCount { font-size: 8px; }
+body.fantasy-rpg #bossHud { width: min(100%,194px); padding: 3px 5px; }
+body.fantasy-rpg #bossHud .boss-label { font-size: 8px; margin-bottom: 2px; }
+body.fantasy-rpg #bossHpText { font-size: 8px; }
+body.fantasy-rpg #bossHud .boss-bar { height: 3px; }
+body.fantasy-rpg #hudUtility #miniMapPanel { width: min(74px,12vw); padding: 2px; border-radius: 4px; }
+body.fantasy-rpg #hudUtility #pause { width: 34px; height: 34px; flex-basis: 34px; border-radius: 4px; min-height: 0; }
+body.fantasy-rpg #actionDock > :is(#heroAbilityButton,#rotateHeroesButton,#universalDashButton) {
+  width: clamp(45px,7vw,56px); height: clamp(45px,7vw,56px);
+  min-height: 0; padding: 3px; gap: 2px; border-radius: 0; clip-path: var(--cut);
+  border-color: #6aa3b2; color: #e4ffff; background: #102838ed; box-shadow: inset 0 -3px #05111b;
+}
+body.fantasy-rpg #actionDock #heroAbilityButton { border-color: #b2a9f4; background: #272741ed; }
+body.fantasy-rpg #actionDock #universalDashButton { border-color: #77e6cf; }
+body.fantasy-rpg #actionDock > button :is(.rpg-icon,.dash-button-sprite) { width: 18px; height: 18px; }
+body.fantasy-rpg #actionDock > button :is(span,small,#universalDashLabel) { font-size: 7px; letter-spacing: 0; }
+body.fantasy-rpg #actionDock #heroAbilityButton .ability-name { min-height: 0; line-height: 1.04; }
+body.fantasy-rpg #joystick { width: clamp(62px,11vw,82px); height: clamp(62px,11vw,82px); opacity: .68; }
+body.fantasy-rpg #stick { width: 31px; height: 31px; margin: -15.5px; background: #80abaf; border-color: #cdfff0; }
+body.fantasy-rpg:has(:is(#pauseScreen,#upgradeScreen,#developerScreen,#bossRewardScreen,#ultimateChoiceScreen,#endScreen,#menu,#formationScreen):not(.hidden)) :is(#hud,#joystick) {
+  visibility: hidden;
+}
+@media (max-width: 580px) {
+  body.fantasy-rpg #hud .hudtop { grid-template-columns: minmax(0,1.2fr) minmax(0,1fr) minmax(0,.75fr); }
+  body.fantasy-rpg #hubNavigation .hub-shortcuts button { justify-content: center; padding: 3px; }
+  body.fantasy-rpg #hubNavigation .shortcut-symbol { display: none; }
+  body.fantasy-rpg #levelsPanel .level-card { flex-basis: 55%; max-width: 55%; }
+  body.fantasy-rpg #levelsPanel #levelCarousel { justify-content: flex-start; }
+  body.fantasy-rpg #levelsPanel .level-card-content { grid-template-columns: 1fr; }
+}

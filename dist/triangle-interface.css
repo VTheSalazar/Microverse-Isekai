@@ -1,0 +1,164 @@
+/* Landscape shell and company command interface. */
+body.fantasy-rpg{--rpg-gold:#d2b77e;--rpg-panel:#142131;--hub-stroke:#68705d;color:#e5e9e7;background:#080e17}
+body.fantasy-rpg.needs-landscape #landscapeNotice{display:flex!important;background:radial-gradient(ellipse at 50% 38%,#243448,#080e17 75%);padding:30px;gap:14px}
+.fantasy-rpg #landscapeNotice h2{font:700 27px Georgia,serif;color:#e4cfa0;margin:22px 0 0}.fantasy-rpg #landscapeNotice p{max-width:400px;line-height:1.6;font-size:16px;margin:0}.fantasy-rpg #landscapeFullscreen{background:linear-gradient(#d7bf86,#b0945c);margin-top:8px}
+.fantasy-rpg #menu{padding:0;background:radial-gradient(ellipse at 45% 50%,#203044,#0c1420 80%)}
+.fantasy-rpg #menu>.card{width:100vw;max-width:none;height:100dvh;max-height:none;padding:max(12px,env(safe-area-inset-top)) var(--safe-r) var(--safe-b) var(--safe-x);margin:0;overflow:auto;background:none;border:0;border-radius:0;box-shadow:none}
+.fantasy-rpg #menuHome:not(.hidden){display:grid!important;grid-template-rows:auto minmax(0,1fr) auto;gap:18px;width:100%;max-width:1440px;height:100%;margin:auto;text-align:left}
+.hub-header{display:flex;align-items:center;gap:20px;min-height:58px;border-bottom:1px solid #a28b5644;padding-bottom:12px}
+#hubBrand{display:flex;flex-direction:column;gap:3px;flex:1}#hubBrand>small{color:#91a4b6;font-size:10px;font-weight:650;letter-spacing:.15em}.fantasy-rpg #menuHome #hubBrand h1{font-size:clamp(22px,3vw,34px);letter-spacing:.12em;margin:0;line-height:1.15}
+#hubResources{margin-left:auto}.fantasy-rpg #hubResources .meta-wallet{display:flex;gap:12px;margin:0;padding:0;background:none;border:0}.fantasy-rpg #hubResources .wallet-chip{background:#132131;border:1px solid #425363;border-radius:7px;padding:8px 12px;min-width:90px}.fantasy-rpg #hubResources .meta-wallet b{font-size:17px}.fantasy-rpg #hubResources .meta-wallet small{font-size:10px}
+.fantasy-rpg #hubFullscreen{font-size:10px;padding:11px 13px;min-height:38px;letter-spacing:.04em}
+.hub-layout{display:grid;grid-template-columns:160px minmax(260px,1fr) minmax(240px,.7fr);min-height:0;gap:20px}
+#hubNavigation{display:flex;flex-direction:column;gap:12px;border-right:1px solid #a28b5633;padding-right:16px;overflow:auto;scrollbar-width:thin}
+.hub-nav-label{font-size:10px;color:#8b9db0;letter-spacing:.13em;margin:5px 0}.hub-current{padding:13px 12px;border:1px solid #b79a6166;border-radius:7px;background:linear-gradient(90deg,#7f6c3c44,#25324533);color:#e4ce9c;font-size:13px;font-weight:700;letter-spacing:.05em}
+.fantasy-rpg #hubNavigation .hub-shortcuts{display:flex;flex-direction:column;gap:8px;flex-wrap:nowrap;justify-content:flex-start}.fantasy-rpg #hubNavigation .hub-shortcuts button{display:flex;align-items:center;gap:9px;flex:none;min-width:0;min-height:51px;width:100%;background:#14213188;border:1px solid #44506377;border-radius:7px;box-shadow:none;padding:10px;color:#bccbda;text-align:left;font-size:12px}
+.fantasy-rpg #hubNavigation .shortcut-symbol{font-size:21px;line-height:1;color:#bda77c}.fantasy-rpg #hubNavigation .hub-shortcuts button>span:last-child{font-size:12px;font-weight:650;display:flex;flex-direction:column;gap:4px}.fantasy-rpg #hubNavigation .hub-shortcuts small{font-size:10px;line-height:1.2;color:#8c9eaf}.fantasy-rpg #hubNavigation .shop-shortcut{opacity:.5}
+.hub-party-stage{display:grid;grid-template-rows:auto minmax(140px,1fr) auto auto;align-items:center;min-height:0;background:radial-gradient(ellipse at 50% 55%,#3750644d,transparent 70%);border:1px solid #53607477;border-radius:12px;padding:16px;overflow:hidden}
+.hub-section-title{display:flex;justify-content:space-between;align-items:center;font-size:11px;letter-spacing:.12em;color:#a7b8c7;align-self:start}#hubTeamReady{background:#21382f;border:1px solid #6a8d6f66;color:#b9d8ad;border-radius:5px;padding:5px 9px;font-size:11px;letter-spacing:.08em}
+#hubTeamPreview{position:relative;align-self:center;justify-self:center;width:min(100%,420px);height:min(100%,340px);min-height:140px}
+.team-triangle-lines{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;fill:none;stroke:#bca46f;stroke-width:1;opacity:.32}.team-triangle-lines path+path{stroke-dasharray:3 8;opacity:.5}
+.triangle-hero{position:absolute;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;gap:3px;width:120px;transform:translateX(-50%);text-align:center;z-index:1}.triangle-hero .triangle-portrait{width:clamp(64px,9vw,115px);height:clamp(64px,9vw,115px);filter:drop-shadow(0 8px 5px #0006)}.triangle-hero b{font:700 17px Georgia,serif;color:#e4d1aa}.triangle-hero small{font-size:9px;letter-spacing:.08em;color:#93a8bb}.triangle-position-0{top:0;left:50%}.triangle-position-1{bottom:3%;left:80%}.triangle-position-2{bottom:3%;left:20%}.empty-triangle{color:#879096;font-size:32px}
+.fantasy-rpg #hubSpecimen{background:none;border:0;border-top:1px solid #6e705755;box-shadow:none;width:100%;padding:10px 0 0;margin:0;text-align:center;justify-content:center;border-radius:0}.fantasy-rpg #hubSpecimen>span:last-child{text-align:center;gap:4px}.fantasy-rpg #hubSpecimen b{font-size:16px}.fantasy-rpg #hubSpecimen small{font-size:9px;color:#9daeb9;letter-spacing:.13em}.fantasy-rpg #hubSpecimen em{font-size:12px;color:#cfbf9d}
+.fantasy-rpg #hubEditTeam{justify-self:center;padding:11px 24px;margin-top:12px;font-size:12px;letter-spacing:.06em;min-height:42px}
+.hub-expedition{display:flex;flex-direction:column;min-height:0;border:1px solid #6e705a88;border-radius:12px;background:linear-gradient(145deg,#243246c9,#141f30);padding:14px;overflow:auto;scrollbar-width:thin}.expedition-art{height:clamp(70px,18vh,190px);min-height:65px;border-radius:7px;background:linear-gradient(0deg,#11203111,#18233a22),url('assets/map/laboratory-scene-3d.jpg') center/cover;position:relative;border:1px solid #65736577;margin-bottom:15px}.expedition-art span{position:absolute;left:8px;bottom:8px;background:#0c1522dd;border:1px solid #a68f5b88;border-radius:4px;padding:5px 8px;font-size:10px;letter-spacing:.1em;color:#ead6a5}
+.hub-expedition>small{font-size:10px;letter-spacing:.13em;color:#b9a477}.hub-expedition h2{font:700 clamp(23px,2.5vw,32px) Georgia,serif;color:#eee1c3;margin:7px 0}.hub-expedition p{font-size:14px;line-height:1.55;color:#a5b8c9;margin:0 0 14px}.hub-expedition dl{display:grid;gap:10px;margin:0 0 16px}.hub-expedition dl>div{display:flex;justify-content:space-between;gap:10px;font-size:12px;border-bottom:1px solid #5f6a7444;padding-bottom:8px}.hub-expedition dt{color:#94aabd}.hub-expedition dd{margin:0;color:#d4dacd;font-weight:650}#hubLaunch{margin-top:auto}.fantasy-rpg #hubLaunch #play{width:100%;min-height:50px;padding:12px 10px;font-size:13px;letter-spacing:.06em;background:linear-gradient(130deg,#e2cc96,#b59658);border-color:#e6ca8a;color:#16212b}
+.hub-footer{position:relative;display:flex;gap:20px;align-items:center;min-height:32px;border-top:1px solid #7f704633;padding-top:10px}.hub-footer-note{font-size:9px;color:#7e94a7;letter-spacing:.1em;margin-left:auto;text-align:right}.fantasy-rpg #menuOptions{margin:0;position:relative}.fantasy-rpg #menuOptions summary{font-size:11px;color:#bbc7d2;letter-spacing:.08em;padding:7px 0}.fantasy-rpg #menuOptions .menu-options-content{position:absolute;bottom:40px;left:0;width:280px;border:1px solid #8f7a4c;background:#142232;padding:12px;z-index:5;box-shadow:0 10px 30px #0006}.fantasy-rpg #menuHome #bestline{font-size:11px;margin:0;color:#92a7b9}#hubLoading:has(#loadingState[hidden]),#hubDebug:has(#startupLog[hidden]){display:none}#hubLoading,#hubDebug{position:absolute;bottom:60px;left:calc(var(--safe-x) + 170px);right:var(--safe-r);z-index:5;background:#142131;border-radius:6px}#hubLoading #loadingState{margin:8px 15px}#hubDebug{max-height:45vh;overflow:auto}#hubDebug #startupLog{margin:6px 12px}
+/* Every secondary menu uses the same horizontal, full-width shell. */
+.fantasy-rpg #menu .menu-panel:not(#menuHome){width:min(1300px,100%);margin:auto;max-height:100%;height:100%;overflow-y:auto;scrollbar-width:thin;padding:8px 0}.fantasy-rpg #menu .panel-header{position:sticky;top:0;z-index:2;background:#132032ee;padding:8px 0 12px;margin-bottom:16px;border-bottom:1px solid #9b875444;min-height:56px}.fantasy-rpg #menu .panel-header h2{font:700 25px Georgia,serif;color:#e5d3aa;letter-spacing:.05em}.fantasy-rpg #menu .menu-back{padding:10px 17px;font-size:12px;min-height:40px}
+.fantasy-rpg #levelsPanel #levelCarousel{display:flex;gap:20px;align-items:center;justify-content:center;max-width:100%;min-height:0;padding:12px;overflow-x:auto;height:calc(100% - 110px);scrollbar-width:thin}.fantasy-rpg #levelsPanel .level-card{width:40%;flex:0 0 40%;max-width:450px;height:min(100%,430px);min-height:190px}.fantasy-rpg #levelsPanel .level-picture{height:65%;min-height:100px}.fantasy-rpg #levelsPanel .level-card-content{padding:12px;min-height:65px}.fantasy-rpg #levelsPanel .level-card-content h3{font-size:20px}.fantasy-rpg #levelsPanel .level-card-content button{font-size:12px;min-height:38px;padding:9px 15px}.fantasy-rpg #levelCarousel .upcoming-level{opacity:.45}
+/* Formation editor mirrors the live triangle. */
+.fantasy-rpg #formationScreen{background:radial-gradient(ellipse at 50% 50%,#25374c,#0b1421 80%)}.formation-shell{max-height:none}.formation-shell>header h2{font-size:clamp(18px,2.6vw,28px)}.formation-shell>header small{font-size:10px}.formation-rule{font-size:12px}.formation-layout{grid-template-columns:minmax(175px,.8fr) minmax(235px,1.15fr) minmax(265px,1.1fr);gap:16px}
+.formation-layout h3{font-size:12px}.hero-catalog-card b{font-size:14px}.hero-catalog-card small{font-size:11px}.fantasy-rpg .hero-catalog-card{min-height:55px}.team-slot{min-height:58px}.team-slot small{font-size:9px}.team-slot b{font-size:15px}.team-slot .hero-portrait{width:46px;height:46px}.formation-center{display:flex;flex-direction:column;gap:7px}#formationSlots{gap:7px;flex:none}
+#formationPreview{position:relative;width:100%;flex:1;min-height:145px;max-height:310px;display:block;margin-top:0;overflow:hidden;background:radial-gradient(ellipse at 50% 66%,#354d5a66,transparent 75%);border:1px solid #465a6a55}.formation-center #formationPreview .triangle-hero{width:100px;gap:0}.formation-center #formationPreview .triangle-portrait{width:72px;height:72px}.formation-center #formationPreview .triangle-hero b{font-size:12px}.formation-center #formationPreview .triangle-hero small{font-size:8px}.formation-center #formationPreview .triangle-position-0{top:-5px}.formation-center #formationPreview .triangle-position-1,.formation-center #formationPreview .triangle-position-2{bottom:3px}
+#heroDetail p{font-size:13px}#heroDetail h4{font-size:11px}.hero-base-attack small{font-size:11px}.hero-skill-list b{font-size:13px}.hero-skill-list small{font-size:12px}.hero-stats dt{font-size:12px}.hero-stats dd{font-size:14px}.formation-shell>footer span{font-size:12px}.formation-shell>footer button{min-height:44px;font-size:13px}
+/* Combat dashboard; center remains clear. */
+.fantasy-rpg #hud .hudtop>.vital-panel:first-child{width:260px!important;background:linear-gradient(120deg,#1d2d3fee,#0c1727ee);border:1px solid #917e5355;border-radius:10px;padding:12px 12px 8px 64px}.fantasy-rpg .leader-portrait{left:4px;top:3px;width:58px;height:66px}.fantasy-rpg #organismHudName{font-size:15px}.fantasy-rpg #hptext{font-size:11px}.fantasy-rpg #hpfill{background:linear-gradient(90deg,#9b3f4a,#dd8077)}.fantasy-rpg .vital-grid .bar{height:8px}.fantasy-rpg #companionStatus{margin-left:-54px;gap:12px}.companion-chip b{font-size:11px}.companion-chip small{font-size:9px}.companion-chip .hero-portrait{width:34px;height:38px}.companion-chip em{background:#a3bc99}.fantasy-rpg #heroManaHud{width:124px;background:#142338e8}.fantasy-rpg #heroManaHud .statrow{font-size:11px}.fantasy-rpg #heroManaHud .bar{height:7px}.fantasy-rpg #miniMapPanel{background:#122035d9;border-color:#927c5055;border-radius:6px}
+.fantasy-rpg #teamExperience{bottom:calc(var(--safe-b) + 3px);background:#111d2de8;border-color:#8b79504d;width:clamp(210px,33vw,430px);padding:7px 12px}.fantasy-rpg #teamExperience #leveltext,.fantasy-rpg #teamExperience #xptext{font-size:10px}.fantasy-rpg #teamExperience .bar{height:5px}
+.fantasy-rpg #actionDock{gap:18px;right:calc(var(--safe-r) + 12px);bottom:calc(var(--safe-b) + 13px)}.fantasy-rpg #rotateHeroesButton{width:76px;height:76px;border-radius:50%;padding:8px 3px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;min-height:0;background:linear-gradient(145deg,#3b4256,#17263a);border:1px solid #c4a871;color:#dfcdab;box-shadow:inset 0 0 0 5px #1c2b3e,0 4px 18px #0006;touch-action:none}.fantasy-rpg #rotateHeroesButton .rpg-icon{width:27px;height:27px;color:#d5bd85}.fantasy-rpg #rotateHeroesButton span{font-size:11px;letter-spacing:.05em}.fantasy-rpg #rotateHeroesButton small{font-size:6px;letter-spacing:.03em;color:#a3b5c5}.fantasy-rpg #rotateHeroesButton.rotating .rpg-icon{animation:triangle-turn .7s ease-in-out}.fantasy-rpg #rotateHeroesButton:disabled{opacity:.65;filter:none}.fantasy-rpg #universalDashButton{width:84px;height:84px}.fantasy-rpg #universalDashLabel{font-size:11px}.fantasy-rpg #joystick{width:120px;height:120px;background:#172a3b77;border-color:#c9b17f66}.fantasy-rpg .joystick-label{font-size:10px;color:#b5c4cc}.fantasy-rpg #pauseScreen>.card{padding:20px}.party-pause-hero h3{font-size:22px}.party-pause-hero>small{font-size:10px}.party-pause-hero p{font-size:12px}.party-pause-hero dl>div{font-size:11px}.party-pause-hero li,.party-pause-shared li{font-size:12px}.party-pause-shared h3{font-size:12px}
+@keyframes triangle-turn{to{transform:rotate(-120deg)}}
+@media(min-height:750px){.hub-layout{grid-template-columns:190px minmax(300px,1fr) minmax(290px,.7fr)}.hub-party-stage{padding:24px}.hub-expedition{padding:22px}.fantasy-rpg #hubNavigation .hub-shortcuts button{min-height:62px;font-size:14px}.fantasy-rpg #hubNavigation .hub-shortcuts button>span:last-child{font-size:14px}}
+@media(max-height:540px){.fantasy-rpg #menuHome:not(.hidden){gap:10px}.hub-header{min-height:42px;padding-bottom:8px;gap:12px}.fantasy-rpg #menuHome #hubBrand h1{font-size:24px}#hubBrand>small{font-size:8px}.hub-layout{grid-template-columns:140px minmax(230px,1fr) minmax(215px,.75fr);gap:12px}#hubNavigation{padding-right:10px;gap:7px}.hub-current{font-size:11px;padding:9px}.hub-nav-label{font-size:9px;margin:0}.fantasy-rpg #hubNavigation .hub-shortcuts{gap:5px}.fantasy-rpg #hubNavigation .hub-shortcuts button{min-height:42px;padding:7px;font-size:11px}.fantasy-rpg #hubNavigation .hub-shortcuts button>span:last-child{font-size:11px}.fantasy-rpg #hubNavigation .hub-shortcuts small{font-size:9px}.hub-party-stage{padding:10px;grid-template-rows:auto minmax(95px,1fr) auto auto}.hub-section-title{font-size:10px}#hubTeamPreview{min-height:95px}.triangle-hero .triangle-portrait{width:70px;height:70px}.triangle-hero{gap:0;width:100px}.triangle-hero b{font-size:13px}.triangle-hero small{font-size:8px}.fantasy-rpg #hubSpecimen{padding-top:5px}.fantasy-rpg #hubSpecimen b{font-size:13px}.fantasy-rpg #hubSpecimen em{font-size:11px}.fantasy-rpg #hubSpecimen small{font-size:8px}.fantasy-rpg #hubEditTeam{min-height:34px;font-size:10px;padding:7px 15px;margin-top:7px}.hub-expedition{padding:10px}.expedition-art{height:70px;min-height:50px;margin-bottom:9px}.hub-expedition h2{font-size:23px;margin:5px 0}.hub-expedition p{font-size:11px;line-height:1.4;margin-bottom:9px}.hub-expedition dl{gap:6px;margin-bottom:8px}.hub-expedition dl>div{font-size:10px;padding-bottom:5px}.fantasy-rpg #hubLaunch #play{min-height:40px;font-size:11px;padding:9px 5px}.hub-footer{padding-top:6px;gap:15px;min-height:26px}.hub-footer-note{font-size:8px}.formation-shell>header{padding-bottom:7px}.formation-layout{gap:10px;padding:8px 0;grid-template-columns:minmax(160px,.8fr) minmax(210px,1.1fr) minmax(240px,1.1fr)}.formation-layout h3{font-size:11px}.fantasy-rpg .hero-catalog-card{min-height:43px}.hero-catalog-card b{font-size:12px}.hero-catalog-card small{font-size:10px}.team-slot{min-height:47px}.team-slot b{font-size:13px}.team-slot small{font-size:8px}.team-slot .hero-portrait{width:37px;height:37px}#formationSlots{gap:5px}#formationPreview{min-height:115px}.formation-center #formationPreview .triangle-portrait{width:50px;height:50px}.formation-center #formationPreview .triangle-hero b{font-size:10px}.formation-center #formationPreview .triangle-hero small{font-size:7px}.formation-shell>footer span{font-size:10px}.formation-shell>footer button{min-height:37px;font-size:11px;padding:9px 15px}#heroDetail p,.hero-skill-list small{font-size:11px}.hero-skill-list b{font-size:12px}.fantasy-rpg #hud .hudtop>.vital-panel:first-child{width:225px!important;padding-top:7px;padding-left:55px}.fantasy-rpg .leader-portrait{width:48px;height:55px}.fantasy-rpg #organismHudName{font-size:13px}.fantasy-rpg #companionStatus{margin-left:-46px;margin-top:6px;gap:8px}.companion-chip b{font-size:10px}.companion-chip small{font-size:8px}.companion-chip .hero-portrait{width:26px;height:31px}.fantasy-rpg #joystick{width:100px;height:100px}.fantasy-rpg #universalDashButton{width:72px;height:72px}.fantasy-rpg #rotateHeroesButton{width:66px;height:66px}.fantasy-rpg #actionDock{gap:14px}.fantasy-rpg #rotateHeroesButton .rpg-icon{width:22px;height:22px}.fantasy-rpg #rotateHeroesButton span{font-size:10px}.fantasy-rpg #teamExperience{padding:6px 9px}.fantasy-rpg #teamExperience #leveltext,.fantasy-rpg #teamExperience #xptext{font-size:9px}.fantasy-rpg #miniMapPanel{width:96px;top:60px}}
+@media(max-width:800px) and (orientation:landscape){.hub-layout{grid-template-columns:120px minmax(190px,1fr) minmax(190px,.8fr);gap:10px}.hub-header{gap:10px}#hubBrand>small{font-size:7px}.fantasy-rpg #hubFullscreen{font-size:9px;padding:8px}.hub-footer-note{display:none}.formation-layout{grid-template-columns:150px minmax(190px,1fr) minmax(220px,1fr);gap:8px}.formation-rule{display:none}.fantasy-rpg #heroManaHud{width:100px}.fantasy-rpg #teamExperience{width:28vw;min-width:175px}.fantasy-rpg #actionDock{right:var(--safe-r)}.hub-expedition p{display:none}}
+.fantasy-rpg #menuHome:not(.hidden){grid-template-columns:minmax(0,1fr)!important;align-items:stretch}
+.fantasy-rpg #menuHome #hubBrand h1{background:none;-webkit-text-fill-color:#e6d4ad;color:#e6d4ad}
+.fantasy-rpg #hubNavigation .shortcut-symbol{flex:0 0 24px;min-width:24px;width:24px;height:28px;border:0;background:none;border-radius:0;box-shadow:none;font-size:21px}
+.fantasy-rpg #hubNavigation .hub-shortcuts button>span:last-child{min-width:0;white-space:normal;overflow-wrap:normal}
+.fantasy-rpg #hubNavigation{overflow-x:hidden}
+@media(max-width:800px) and (orientation:landscape){.fantasy-rpg #hubNavigation .shortcut-symbol{flex-basis:20px;min-width:20px;width:20px;font-size:19px}.fantasy-rpg #hubNavigation .hub-shortcuts button{gap:6px;padding:6px}.fantasy-rpg #hubNavigation .hub-shortcuts button>span:last-child{font-size:10px}}
+
+/* Free-party preview replaces the former triangle diagram. */
+.free-party-preview{position:absolute;inset:0}
+.free-party-preview .triangle-hero{top:50%!important;bottom:auto!important;transform:translate(-50%,-50%)}
+.free-party-position-0{left:50%}.free-party-position-1{left:18%}.free-party-position-2{left:82%}
+.fantasy-rpg #rotateHeroesButton[hidden]{display:none!important}
+
+/* Manual hero switching and class skills, separate from movement and universal dash. */
+.fantasy-rpg #actionDock{gap:10px;max-width:none;pointer-events:none}
+.fantasy-rpg #actionDock>button{pointer-events:auto;touch-action:none;-webkit-user-select:none;user-select:none}
+.fantasy-rpg #rotateHeroesButton,.fantasy-rpg #heroAbilityButton{width:76px;height:76px;min-width:0;border-radius:50%;padding:7px 4px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;background:linear-gradient(145deg,#3b4256,#17263a);border:1px solid #c4a871;color:#dfcdab;box-shadow:inset 0 0 0 4px #1c2b3e,0 4px 14px #0006;position:relative;overflow:hidden}
+.fantasy-rpg #heroAbilityButton{width:88px;height:88px;border-color:#b8a0d6;background:linear-gradient(145deg,#423250,#1c2238)}
+.fantasy-rpg #heroAbilityButton .rpg-icon{width:27px;height:27px;color:#d9c3f2;display:block}
+.fantasy-rpg #heroAbilityButton .ability-name{font-size:9px;line-height:1.05;max-width:77px;text-align:center;white-space:normal;min-height:18px}
+.fantasy-rpg #heroAbilityButton small{font-size:9px;line-height:1.2;color:#c6ccea}
+.fantasy-rpg #rotateHeroesButton small{font-size:8px;max-width:67px;white-space:nowrap;text-overflow:ellipsis;overflow:hidden}
+.fantasy-rpg #heroAbilityButton .ability-cooldown{position:absolute;left:18%;bottom:5px;width:64%;height:3px;background:#d1b7eb;transform:scaleX(var(--ability-ready,1));transform-origin:left center;border-radius:3px}
+.fantasy-rpg #heroAbilityButton:disabled{opacity:.58;filter:none}.fantasy-rpg #heroAbilityButton.no-mana small{color:#ffaaa1}
+.hero-unique-detail{display:flex;gap:9px;padding:10px 0;border-top:1px solid #6c5b4844;border-bottom:1px solid #6c5b4844}.hero-unique-detail>.rpg-icon{width:27px;height:27px;flex-shrink:0;color:#ccb2ec}.hero-unique-detail b,.hero-unique-detail small,.pause-unique small{display:block}.hero-unique-detail small,.pause-unique small{font-size:10px;color:#cbb2e1;margin-top:3px}.hero-unique-detail p{margin:5px 0 0}.pause-unique{padding:9px;border:1px solid #7e68864d;border-radius:5px;margin:9px 0}.pause-unique>b{font-size:12px}.pause-unique p{font-size:11px;line-height:1.4}
+.fantasy-rpg #developerToolsButton{bottom:calc(var(--safe-b) + 112px)}
+@media(max-height:540px){.fantasy-rpg #rotateHeroesButton{width:62px;height:62px}.fantasy-rpg #heroAbilityButton{width:76px;height:76px}.fantasy-rpg #rotateHeroesButton span{font-size:9px}.fantasy-rpg #rotateHeroesButton small{font-size:7px;max-width:55px}.fantasy-rpg #heroAbilityButton .rpg-icon{width:22px;height:22px}.fantasy-rpg #heroAbilityButton .ability-name{font-size:8px;max-width:67px}.fantasy-rpg #heroAbilityButton small{font-size:8px}.fantasy-rpg #actionDock{gap:9px}}
+@media(max-width:800px) and (orientation:landscape){.fantasy-rpg #teamExperience{width:25vw;min-width:150px;left:43%;bottom:calc(var(--safe-b) + 6px)}.fantasy-rpg #actionDock{gap:7px;right:calc(var(--safe-r) + 3px)}}
+
+#actionDock #reviveAllyButton{position:absolute!important;inset:auto 0 calc(100% + 10px) auto!important;width:112px;height:52px;border-radius:10px;border-color:#d3b37b;background:#253247;color:#ffefc2}
+#actionDock #reviveAllyButton:disabled{opacity:1}
+#actionDock #reviveAllyButton span{font-size:14px;font-weight:800}
+#reviveAllyFill{background:#edc87d;transform:scaleX(0)}
+#actionDock #universalDashButton .dash-button-sprite{image-rendering:pixelated}
+
+/* Combat status is arranged in one safe-area row above the battlefield. */
+.fantasy-rpg #hud { inset: 0; padding: max(8px, env(safe-area-inset-top)) var(--safe-r) 0 var(--safe-x); }
+.fantasy-rpg #hud .hudtop { display: grid; grid-template-columns: minmax(0, 245px) minmax(0, 1fr) minmax(0, 245px); align-items: start; gap: clamp(6px, 2vw, 24px); }
+.fantasy-rpg #hud .hudtop > .vital-panel:first-child { position: relative; inset: auto; width: 100% !important; padding: 8px; background: #101a29f2; }
+.fantasy-rpg .vital-heading { min-height: 23px; margin: 0 0 5px 32px; }
+.fantasy-rpg .leader-portrait { inset: 3px auto auto 4px; width: 32px; height: 34px; }
+.fantasy-rpg .vital-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 9px; margin: 0; }
+.fantasy-rpg #heroManaHud { position: static; width: auto; padding: 0; border: 0; background: none; }
+.fantasy-rpg #hud .vital-grid .statrow { margin-bottom: 3px; font-size: 10px; }
+.fantasy-rpg #hud .vital-grid .statrow > span:first-child { font-size: 9px; }
+.fantasy-rpg #hud .vital-grid .bar { height: 5px; margin: 0; }
+.fantasy-rpg #teamExperience { position: static; transform: none; width: auto; min-width: 0; margin: 8px 0 0; padding: 6px 7px; gap: 4px 6px; background: #0b1424; border-color: #607786; }
+.fantasy-rpg #teamExperience #leveltext, .fantasy-rpg #teamExperience #xptext { font-size: 11px; font-weight: 750; color: #e8f4ff; font-variant-numeric: tabular-nums; }
+.fantasy-rpg #teamExperience .bar { height: 7px; margin: 0; background: #26364d; }
+.fantasy-rpg #xpfill { background: linear-gradient(90deg, #73b9ff, #a3efcf); }
+.fantasy-rpg #companionStatus { margin: 5px 0 0; gap: 7px; }
+.fantasy-rpg #companionStatus .hero-portrait { width: 22px; height: 26px; }
+.companion-chip b { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.companion-chip small { font-size: 9px; }
+#hudEncounter { display: grid; justify-items: center; gap: 5px; min-width: 0; }
+.fantasy-rpg #hud #runStatus { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 2px 8px; position: static; width: fit-content; min-width: 0 !important; padding: 5px 8px; background: #101a29ef; border: 1px solid #635a44; border-radius: 8px; }
+.fantasy-rpg #hud #timer { font-size: 16px !important; font-variant-numeric: tabular-nums; }
+.fantasy-rpg #hud #wave, .fantasy-rpg #hud #runDnaCount { margin: 0; font-size: 9px; }
+.fantasy-rpg #hud #runDnaCount .material-icon { width: 12px; height: 12px; }
+.fantasy-rpg #bossHud { position: static; transform: none; width: min(100%, 290px); padding: 5px 7px; border-radius: 6px; background: #241528f2; box-shadow: none; }
+.fantasy-rpg .boss-label { display: block; margin-bottom: 4px; font-size: 10px; line-height: 1.2; letter-spacing: 0; }
+.fantasy-rpg #bossHpText { display: block; color: #ffd0de; font-size: 10px; font-variant-numeric: tabular-nums; }
+.fantasy-rpg .boss-bar { height: 5px; }
+#hudUtility { display: flex; justify-content: flex-end; align-items: flex-start; gap: 6px; }
+.fantasy-rpg #hudUtility #miniMapPanel { position: static; width: min(112px, 15vw); margin: 0; padding: 3px; }
+.fantasy-rpg #hudUtility #pause { position: static; width: 42px; height: 42px; flex: 0 0 42px; min-height: 0; }
+.fantasy-rpg #actionDock { gap: 7px; bottom: var(--safe-b); right: var(--safe-r); }
+.fantasy-rpg #actionDock > :is(#universalDashButton,#rotateHeroesButton,#heroAbilityButton) { width: clamp(57px, 9vw, 74px); height: clamp(57px, 9vw, 74px); }
+.fantasy-rpg #actionDock #heroAbilityButton { width: clamp(65px, 10vw, 82px); height: clamp(65px, 10vw, 82px); }
+@media (max-width: 820px) {
+  .fantasy-rpg #hud .hudtop { grid-template-columns: minmax(0, 1.18fr) minmax(0, 1fr) minmax(0, .68fr); }
+}
+@media (max-height: 400px) {
+  .fantasy-rpg #joystick { width: 90px; height: 90px; bottom: calc(var(--safe-b) + 8px) !important; }
+}
+
+/* Expedition menu */
+.fantasy-rpg #menuHome:not(.hidden) { height: auto; min-height: 100%; grid-template-rows: auto 1fr auto; gap: clamp(9px, 2vh, 20px); }
+.hub-layout { grid-template-columns: minmax(100px, .6fr) minmax(0, 1.6fr) minmax(0, 1fr); gap: clamp(8px, 2vw, 24px); }
+#hubNavigation { overflow: visible; border: 0; padding: 0; }
+.fantasy-rpg #hubNavigation .hub-shortcuts button { min-height: 39px; padding: 7px; }
+.hub-party-stage { grid-template-rows: auto 1fr auto; gap: 10px; padding: clamp(7px, 1.5vw, 16px); }
+#hubTeamPreview { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(3px, 1vw, 12px); width: 100%; height: auto; min-height: 0; }
+.hub-hero { min-width: 0; min-height: 98px; display: grid; justify-items: center; align-content: end; gap: 3px; padding: 4px 0 8px; border: 1px solid #55687d; border-radius: 8px; background: #0f1a2be0; text-align: center; }
+.hub-hero:first-child { border-color: #b19459; }
+.hub-hero .hero-portrait { width: min(100%, 86px); height: clamp(48px, 12vh, 94px); }
+.hub-hero b { font-size: clamp(10px, 1.55vw, 15px); }
+.hub-hero small { font-size: 10px; color: #b3c7da; }
+.fantasy-rpg #hubEditTeam { width: 100%; margin: 0; min-height: 38px; }
+.hub-expedition { overflow: visible; padding: clamp(7px, 1.5vw, 14px); }
+.hub-expedition .expedition-art { flex: 1; min-height: 65px; max-height: 210px; margin-bottom: 4px; }
+.hub-expedition h2 { font-size: clamp(18px, 3vw, 32px); }
+.hub-expedition p { font-size: 12px; margin-bottom: 8px; }
+.fantasy-rpg #hubLaunch #play { min-height: 40px; margin: 0; padding: 7px; font-size: 11px; }
+@media (max-width: 540px) {
+  .hub-layout { grid-template-columns: 1fr 1fr; }
+  #hubNavigation { grid-column: 1 / -1; }
+  .fantasy-rpg #hubNavigation .hub-shortcuts { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .hub-header { flex-wrap: wrap; }
+}
+
+/* The selected pause section scrolls independently of its buttons. */
+.fantasy-rpg #pauseScreen .pause-card { width: min(880px, 96vw); max-height: 94dvh; padding: clamp(8px, 2vw, 18px); display: grid; grid-template-rows: auto auto minmax(0, 1fr) auto; gap: 8px; overflow: hidden; }
+.fantasy-rpg #pauseScreen [hidden] { display: none !important; }
+.pause-header, .pause-settings { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+.fantasy-rpg #pauseScreen h2 { margin: 0; font-size: 22px; }
+.fantasy-rpg #pauseScreen #qualityProfile { width: auto; margin: 0; padding: 5px 7px; }
+.pause-tabs { display: flex; gap: 6px; border-bottom: 1px solid #485469; padding-bottom: 5px; }
+.fantasy-rpg .pause-tabs button { min-height: 35px; padding: 5px 13px; color: #d3e0ed; background: #182438; border: 1px solid #4b5b73; }
+.fantasy-rpg .pause-tabs button[aria-pressed="true"] { color: #211b11; background: #e0c78d; border-color: #f7e2b0; }
+#partyPauseContent { min-height: 0; overflow: auto; scrollbar-width: thin; }
+.fantasy-rpg #pauseScreen .shared-loadout { margin: 0; padding: 8px; gap: 8px; }
+.fantasy-rpg #pauseScreen .party-pause-grid { gap: 7px; }
+.fantasy-rpg #pauseScreen .party-pause-hero { padding: 8px; min-width: 0; }
+.fantasy-rpg #pauseScreen .pause-actions { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 6px; margin: 0; padding-top: 7px; border-top: 1px solid #485469; }
+.fantasy-rpg #pauseScreen .pause-actions > button { position: static; min-height: 38px; margin: 0; padding: 6px 11px; font-size: 11px; }
+.fantasy-rpg #pauseScreen #resume { order: 2; }
+@media (max-width: 575px) {
+  .fantasy-rpg #pauseScreen .party-pause-grid, .fantasy-rpg #pauseScreen .shared-loadout { grid-template-columns: 1fr; }
+}
+/* Keep the optional developer log out of the menu controls' hit areas. */
+.fantasy-rpg #hubDebug { position: static; min-height: 0; max-height: 30vh; }
